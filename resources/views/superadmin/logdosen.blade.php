@@ -45,18 +45,20 @@
                 <div class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
-									collapse-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-align-justify">
+									collapse-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-align-justify">
                                     <line x1="21" y1="10" x2="3" y2="10"></line>
                                     <line x1="21" y1="6" x2="3" y2="6"></line>
                                     <line x1="21" y1="14" x2="3" y2="14"></line>
                                     <line x1="21" y1="18" x2="3" y2="18"></line>
                                 </svg></a></li>
                         <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-maximize">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize">
                                     <path
                                         d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
                                     </path>
@@ -66,24 +68,26 @@
                     </ul>
                 </div>
                 <span class="badge badge-secondary custom-badge-style">
-                    <span class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username'))
-                        }}</span>
+                    <span
+                        class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username')) }}</span>
                 </span>
 
                 <ul class="navbar-nav navbar-right">
 
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}" class="user-img-radious-style">
+                        <a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}"
+                                class="user-img-radious-style">
 
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello {{ strtoupper(session('username'))
-                                }}</div>
+                            <div class="dropdown-title">Hello {{ strtoupper(session('username')) }}</div>
 
                             <div class="dropdown-divider"></div>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
                                 @csrf
                             </form>
                             <a href="#" id="logout-link" class="dropdown-item has-icon text-danger">
@@ -104,10 +108,11 @@
                     <ul class="sidebar-menu">
                         <li class="dropdown">
                             <a href="{{ route('superadmin.dashboard') }}" class="nav-link toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-monitor">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2">
+                                    </rect>
                                     <line x1="8" y1="21" x2="16" y2="21"></line>
                                     <line x1="12" y1="17" x2="12" y2="21"></line>
                                 </svg><span>Dashboard</span></a>
@@ -115,9 +120,9 @@
                         <li class="menu-header">Table</li>
                         <li class="dropdown active">
                             <a href="#" class="menu-toggle nav-link has-dropdown toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-grid">
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
                                     <rect x="3" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="14" width="7" height="7"></rect>
@@ -126,14 +131,24 @@
                             <ul class="dropdown-menu">
                                 <li class="active"><a class="nav-link" href="{{ route('kuliahDosen.index') }}">Log
                                         Dosen</a></li>
-                                <li><a class="nav-link" href="{{ route('kuliahDosen.kuliah') }}">Log Kuliah</a></li>
+                                <li><a class="nav-link" href="{{ route('kuliahDosen.kuliah') }}">Log
+                                        Kuliah</a></li>
                                 <li><a class="nav-link " href="{{ route('kegiatan.index') }}">Log
                                         Kegiatan</a></li>
-                                <li><a class="nav-link " href="{{ route('labpc.index') }}">Lab & Kelas</a></li>
-                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata Kuliah</a></li>
+                                <li><a class="nav-link " href="{{ route('labpc.index') }}">Lab &
+                                        Kelas</a></li>
+                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata
+                                        Kuliah</a></li>
                                 <li>
                                     <a class="nav-link" href="{{ route('historyMatkul') }}">History Mata
                                         Kuliah</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('perbaikan.index') }}">List Perbaikan</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('historyPerbaikan') }}">History
+                                        Perbaikan</a>
                                 </li>
                                 <li><a class="nav-link " href="{{ route('user.index') }}">User</a></li>
                             </ul>
@@ -178,11 +193,12 @@
                                                         Filter Lab
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="labFilterDropdown">
-                                                        <a class="dropdown-item lab-filter-dropdown-item" href="#"
-                                                            data-value="semua_lab">Semua Lab</a>
-                                                        @foreach($listRuangLab as $ruangLab)
-                                                        <a class="dropdown-item lab-filter-dropdown-item" href="#"
-                                                            data-value="{{ $ruangLab }}">{{ $ruangLab }}</a>
+                                                        <a class="dropdown-item lab-filter-dropdown-item"
+                                                            href="#" data-value="semua_lab">Semua Lab</a>
+                                                        @foreach ($listRuangLab as $ruangLab)
+                                                            <a class="dropdown-item lab-filter-dropdown-item"
+                                                                href="#"
+                                                                data-value="{{ $ruangLab }}">{{ $ruangLab }}</a>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -210,40 +226,42 @@
                         </div>
                 </section>
                 @foreach ($data as $logKeg)
-                <div class="modal fade" id="viewModal{{ $logKeg->id_logkul }}" tabindex="-1" role="dialog"
-                    aria-labelledby="viewModalLabel{{ $logKeg->id_logkul }}" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="viewModalLabel{{ $logKeg->id_logkul }}">Detail Log Kuliah
-                                </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
+                    <div class="modal fade" id="viewModal{{ $logKeg->id_logkul }}" tabindex="-1" role="dialog"
+                        aria-labelledby="viewModalLabel{{ $logKeg->id_logkul }}" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="viewModalLabel{{ $logKeg->id_logkul }}">Detail Log
+                                        Kuliah
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
 
-                                <p><strong>Nama:</strong> {{ $logKeg->nama }}</p>
-                                <p><strong>Ruang Lab:</strong> {{ $logKeg->ruang_lab }}</p>
-                                <p><strong>Jam Masuk:</strong> {{ $logKeg->jamMasuk }}</p>
-                                <p><strong>Jam Keluar:</strong> {{ $logKeg->jamKeluar }}</p>
-                                <p><strong>Keterangan:</strong> {{ $logKeg->keterangan }}</p>
-                                <p><strong>Hadir:</strong> {{ $logKeg->hadir }}</p>
-                                <p><strong>Tidak Hadir:</strong> {{ $logKeg->tidakhadir }}</p>
-                                <p><strong>Mata Kuliah:</strong> {{ $logKeg->matkul }}</p>
-                                <p><strong>SKS:</strong> {{ $logKeg->sks }}</p>
-                                <p><strong>Tanggal:</strong> {{ $logKeg->tanggal }}</p>
-                                <p><strong>Jumlah Mahasiswa:</strong> {{ $logKeg->jumlahMhs }}</p>
-                                <p><strong>Durasi:</strong> {{ $logKeg->durasi }}</p>
+                                    <p><strong>Nama:</strong> {{ $logKeg->nama }}</p>
+                                    <p><strong>Ruang Lab:</strong> {{ $logKeg->ruang_lab }}</p>
+                                    <p><strong>Jam Masuk:</strong> {{ $logKeg->jamMasuk }}</p>
+                                    <p><strong>Jam Keluar:</strong> {{ $logKeg->jamKeluar }}</p>
+                                    <p><strong>Keterangan:</strong> {{ $logKeg->keterangan }}</p>
+                                    <p><strong>Hadir:</strong> {{ $logKeg->hadir }}</p>
+                                    <p><strong>Tidak Hadir:</strong> {{ $logKeg->tidakhadir }}</p>
+                                    <p><strong>Mata Kuliah:</strong> {{ $logKeg->matkul }}</p>
+                                    <p><strong>SKS:</strong> {{ $logKeg->sks }}</p>
+                                    <p><strong>Tanggal:</strong> {{ $logKeg->tanggal }}</p>
+                                    <p><strong>Jumlah Mahasiswa:</strong> {{ $logKeg->jumlahMhs }}</p>
+                                    <p><strong>Durasi:</strong> {{ $logKeg->durasi }}</p>
 
 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
 
                 <div class="settingSidebar">
@@ -317,8 +335,8 @@
                             <div class="p-15 border-bottom">
                                 <div class="theme-setting-options">
                                     <label class="m-b-0">
-                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
-                                            id="mini_sidebar_setting">
+                                        <input type="checkbox" name="custom-switch-checkbox"
+                                            class="custom-switch-input" id="mini_sidebar_setting">
                                         <span class="custom-switch-indicator"></span>
                                         <span class="control-label p-l-10">Mini Sidebar</span>
                                     </label>
@@ -327,8 +345,8 @@
                             <div class="p-15 border-bottom">
                                 <div class="theme-setting-options">
                                     <label class="m-b-0">
-                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
-                                            id="sticky_header_setting">
+                                        <input type="checkbox" name="custom-switch-checkbox"
+                                            class="custom-switch-input" id="sticky_header_setting">
                                         <span class="custom-switch-indicator"></span>
                                         <span class="control-label p-l-10">Sticky Header</span>
                                     </label>
@@ -372,9 +390,9 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Handle logout link click
-            $('a#logout-link').click(function (event) {
+            $('a#logout-link').click(function(event) {
                 event.preventDefault(); // Prevent default link behavior
                 $('#logout-form').submit(); // Submit the form
             });
@@ -382,8 +400,8 @@
     </script>
 
     <script>
-        $(document).ready(function () {
-            $('.lab-filter-dropdown-item').on('click', function (e) {
+        $(document).ready(function() {
+            $('.lab-filter-dropdown-item').on('click', function(e) {
                 e.preventDefault();
                 var selectedValue = $(this).data('value');
                 $('#labFilter').val(selectedValue);

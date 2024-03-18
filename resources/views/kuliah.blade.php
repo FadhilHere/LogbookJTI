@@ -190,8 +190,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="nama">Nama:</label>
-                                                        <input type="text" name="nama" id="nama" class="form-control"
-                                                            required>
+                                                        <input type="text" name="nama" id="nama"
+                                                            class="form-control" required>
                                                     </div>
                                                 </div>
 
@@ -199,8 +199,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="nim">Nim:</label>
-                                                        <input type="text" name="nim" id="nim" class="form-control"
-                                                            required>
+                                                        <input type="text" name="nim" id="nim"
+                                                            class="form-control" required>
                                                     </div>
                                                 </div>
 
@@ -212,9 +212,10 @@
                                                     <div class="form-group">
                                                         <label for="pc">Nomor PC:</label>
                                                         <select name="pc" id="pc" class="form-control">
-                                                            @for ($i = 1; $i <= 40; $i++) <option value="{{ $i }}">
-                                                                {{ $i }}</option>
-                                                                @endfor
+                                                            @for ($i = 1; $i <= 40; $i++)
+                                                                <option value="{{ $i }}">
+                                                                    {{ $i }}</option>
+                                                            @endfor
                                                         </select>
                                                     </div>
                                                 </div>
@@ -225,8 +226,9 @@
                                                         <select name="lab" id="lab" class="form-control">
                                                             <option value="" selected disabled>Pilih Lab</option>
                                                             @foreach ($labs as $lab)
-                                                            <option value="{{ $lab->id_lab }}">{{ $lab->ruang_lab }}
-                                                            </option>
+                                                                <option value="{{ $lab->id_lab }}">
+                                                                    {{ $lab->ruang_lab }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -237,7 +239,7 @@
                                                     <div class="form-group">
                                                         <label for="kelas">Kelas:</label>
                                                         <select name="kelas" id="kelas"
-                                                            class="form-control custom-select">
+                                                            class="form-control custom-select" disabled>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -266,13 +268,15 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="dosen">Dosen:</label>
-                                                        <input type="text" name="dosen" id="dosen" class="form-control">
+                                                        <input type="text" name="dosen" id="dosen"
+                                                            class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="ail">AIL:</label>
-                                                        <input type="text" name="ail" id="ail" class="form-control">
+                                                        <input type="text" name="ail" id="ail"
+                                                            class="form-control">
                                                     </div>
                                                 </div>
 
@@ -305,10 +309,12 @@
                                                         <label for="monitor">Monitor:</label>
                                                         <div>
                                                             <label class="mr-2">
-                                                                <input type="radio" name="monitor" value="bagus"> Bagus
+                                                                <input type="radio" name="monitor" value="bagus">
+                                                                Bagus
                                                             </label>
                                                             <label>
-                                                                <input type="radio" name="monitor" value="rusak"> Rusak
+                                                                <input type="radio" name="monitor" value="rusak">
+                                                                Rusak
                                                             </label>
                                                         </div>
                                                     </div>
@@ -318,10 +324,12 @@
                                                         <label for="keyboard">Keyboard:</label>
                                                         <div>
                                                             <label class="mr-2">
-                                                                <input type="radio" name="keyboard" value="bagus"> Bagus
+                                                                <input type="radio" name="keyboard" value="bagus">
+                                                                Bagus
                                                             </label>
                                                             <label>
-                                                                <input type="radio" name="keyboard" value="rusak"> Rusak
+                                                                <input type="radio" name="keyboard" value="rusak">
+                                                                Rusak
                                                             </label>
                                                         </div>
                                                     </div>
@@ -332,10 +340,12 @@
                                                         <label for="mouse">Mouse:</label>
                                                         <div>
                                                             <label class="mr-2">
-                                                                <input type="radio" name="mouse" value="bagus"> Bagus
+                                                                <input type="radio" name="mouse" value="bagus">
+                                                                Bagus
                                                             </label>
                                                             <label>
-                                                                <input type="radio" name="mouse" value="rusak"> Rusak
+                                                                <input type="radio" name="mouse" value="rusak">
+                                                                Rusak
                                                             </label>
                                                         </div>
                                                     </div>
@@ -346,10 +356,12 @@
                                                         <label for="jaringan">Jaringan:</label>
                                                         <div>
                                                             <label class="mr-2">
-                                                                <input type="radio" name="jaringan" value="bagus"> Bagus
+                                                                <input type="radio" name="jaringan" value="bagus">
+                                                                Bagus
                                                             </label>
                                                             <label>
-                                                                <input type="radio" name="jaringan" value="rusak"> Rusak
+                                                                <input type="radio" name="jaringan" value="rusak">
+                                                                Rusak
                                                             </label>
                                                         </div>
                                                     </div>
@@ -366,7 +378,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="alat">Alat:</label>
-                                                        <input type="text" name="alat" id="alat" class="form-control"
+                                                        <input type="text" name="alat" id="alat"
+                                                            class="form-control"
                                                             placeholder="Contoh: Kabel LAN, Switch, Router">
                                                     </div>
                                                 </div>
@@ -392,19 +405,22 @@
     <script src="{{ asset('assetsLanding/js/main.js') }}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+
+
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
+
             $('#kelas').select2({
                 placeholder: 'Pilih kelas',
                 allowClear: true,
-                width: '100%', // Sesuaikan lebar dropdown dengan kebutuhan
-                dropdownAutoWidth: true, // Biarkan Select2 mengatur lebar dropdown secara otomatis
-                minimumInputLength: 0, // Izinkan pencarian bahkan jika tidak ada input
+                width: '100%',
+                dropdownAutoWidth: true,
+                minimumInputLength: 0,
                 ajax: {
                     url: '/get-kelas-data',
                     dataType: 'json',
                     delay: 250,
-                    processResults: function (data) {
+                    processResults: function(data) {
                         return {
                             results: data
                         };
@@ -412,95 +428,112 @@
                     cache: true
                 },
             });
+
+
+            $('#kelas').prop('disabled', true);
+
+
+            $('#lab').change(function() {
+
+                var labId = $(this).val();
+
+                if (labId) {
+
+                    $('#kelas').prop('disabled', false);
+                } else {
+
+                    $('#kelas').prop('disabled', true);
+                }
+            });
         });
     </script>
 
-	<script>
-    $(document).ready(function () {
-        $('#lab').on('change', function () {
-            var labId = $(this).val();
+    <script>
+        $(document).ready(function() {
+            $('#lab').on('change', function() {
+                var labId = $(this).val();
 
-            if (labId) {
-                
-                $.ajax({
-                    type: 'GET',
-                    url: '/get-kelas-list/' + labId,
-                    success: function (data) {
-                        
-                        $('#kelas').empty();
+                if (labId) {
 
-                       
-                        $('#kelas').append($('<option>', {
-                            value: '',
-                            text: 'Pilih Kelas'
-                        }));
+                    $.ajax({
+                        type: 'GET',
+                        url: '/get-kelas-list/' + labId,
+                        success: function(data) {
 
-                        
-                        $.each(data, function (key, value) {
+                            $('#kelas').empty();
+
+
                             $('#kelas').append($('<option>', {
-                                value: value.id_kelas,
-                                text: value.nama_kelas
+                                value: '',
+                                text: 'Pilih Kelas'
                             }));
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            } else {
-                
-                console.log('Pilih lab terlebih dahulu');
-            }
-        });
 
-    
-    $('#kelas').on('change', function () {
-        var labId = $('#lab').val();
-        var kelasId = $(this).val();
 
-        if (labId && kelasId) {
-           
-            $.ajax({
-                type: 'GET',
-                url: '/get-matkul-list/' + labId + '/' + kelasId,
-                success: function (data) {
-                   
-                    $('#matkul').empty();
-
-                    
-                    $('#matkul').append($('<option>', {
-                        value: '',
-                        text: 'Pilih Matakuliah'
-                    }));
-
-                    
-                    $.each(data, function (key, value) {
-                        $('#matkul').append($('<option>', {
-                            value: value.id_matakuliah,
-                            text: value.matkul
-                        }));
+                            $.each(data, function(key, value) {
+                                $('#kelas').append($('<option>', {
+                                    value: value.id_kelas,
+                                    text: value.nama_kelas
+                                }));
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
+                        }
                     });
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr.responseText);
+                } else {
+
+                    console.log('Pilih lab terlebih dahulu');
                 }
             });
-        } else {
-           
-            console.log('Pilih lab dan kelas terlebih dahulu');
-        }
-    });
-            
-            $('#matkul').on('change', function () {
+
+
+            $('#kelas').on('change', function() {
+                var labId = $('#lab').val();
+                var kelasId = $(this).val();
+
+                if (labId && kelasId) {
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '/get-matkul-list/' + labId + '/' + kelasId,
+                        success: function(data) {
+
+                            $('#matkul').empty();
+
+
+                            $('#matkul').append($('<option>', {
+                                value: '',
+                                text: 'Pilih Matakuliah'
+                            }));
+
+
+                            $.each(data, function(key, value) {
+                                $('#matkul').append($('<option>', {
+                                    value: value.id_matakuliah,
+                                    text: value.matkul
+                                }));
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
+                        }
+                    });
+                } else {
+
+                    console.log('Pilih lab dan kelas terlebih dahulu');
+                }
+            });
+
+            $('#matkul').on('change', function() {
                 var labId = $('#lab').val();
                 var selectedMatkul = $(this).val();
 
                 if (labId && selectedMatkul) {
-                    
+
                     $.ajax({
                         type: 'GET',
                         url: '/get-matkul-info/' + labId + '/' + selectedMatkul,
-                        success: function (data) {
+                        success: function(data) {
                             console.log(data);
                             if (data) {
                                 $('#jamMasuk').val(data.jamMasuk);
@@ -514,7 +547,8 @@
 
 
                                 var saatIni = new Date();
-                                var jamSekarang = saatIni.getHours() + ':' + (saatIni.getMinutes() < 10 ? '0' : '') + saatIni.getMinutes();
+                                var jamSekarang = saatIni.getHours() + ':' + (saatIni
+                                    .getMinutes() < 10 ? '0' : '') + saatIni.getMinutes();
 
 
                                 var jamMasukSplit = jamMasuk.split(':');
@@ -522,29 +556,33 @@
                                 var jamSekarangSplit = jamSekarang.split(':');
 
 
-                                var jamMasukDate = new Date(0, 0, 0, jamMasukSplit[0], jamMasukSplit[1], 0);
-                                var jamKeluarDate = new Date(0, 0, 0, jamKeluarSplit[0], jamKeluarSplit[1], 0);
-                                var jamSekarangDate = new Date(0, 0, 0, jamSekarangSplit[0], jamSekarangSplit[1], 0);
+                                var jamMasukDate = new Date(0, 0, 0, jamMasukSplit[0],
+                                    jamMasukSplit[1], 0);
+                                var jamKeluarDate = new Date(0, 0, 0, jamKeluarSplit[0],
+                                    jamKeluarSplit[1], 0);
+                                var jamSekarangDate = new Date(0, 0, 0, jamSekarangSplit[0],
+                                    jamSekarangSplit[1], 0);
 
 
-                                if (jamSekarangDate < jamMasukDate || jamSekarangDate >= jamKeluarDate) {
+                                if (jamSekarangDate < jamMasukDate || jamSekarangDate >=
+                                    jamKeluarDate) {
                                     $('#alertJamMasuk').show();
                                 } else {
                                     $('#alertJamMasuk').hide();
                                 }
 
                             } else {
-                                
+
                                 console.log('Data matakuliah tidak ditemukan');
                             }
                         },
-                        error: function (xhr, status, error) {
+                        error: function(xhr, status, error) {
                             console.error(xhr.responseText);
                         }
                     });
 
                 } else {
-                    
+
                     console.log('Pilih lab dan matkul terlebih dahulu');
                 }
             });
@@ -552,7 +590,6 @@
     </script>
 
     <script>
-
         var tanggalInput = document.getElementById('tanggal');
 
 

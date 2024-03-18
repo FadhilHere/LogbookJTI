@@ -148,7 +148,7 @@ class SLogDosenController extends Controller
         return view('superadmin.kuliah', compact('data', 'listRuangLab', 'listKelas', 'labFilter', 'kelasFilter'));
     }
 
-
+    
 
     public function dashboard()
     {

@@ -46,18 +46,20 @@
                 <div class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
-									collapse-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-align-justify">
+									collapse-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-align-justify">
                                     <line x1="21" y1="10" x2="3" y2="10"></line>
                                     <line x1="21" y1="6" x2="3" y2="6"></line>
                                     <line x1="21" y1="14" x2="3" y2="14"></line>
                                     <line x1="21" y1="18" x2="3" y2="18"></line>
                                 </svg></a></li>
                         <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-maximize">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize">
                                     <path
                                         d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
                                     </path>
@@ -67,24 +69,26 @@
                     </ul>
                 </div>
                 <span class="badge badge-secondary custom-badge-style">
-                    <span class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username'))
-                        }}</span>
+                    <span
+                        class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username')) }}</span>
                 </span>
 
                 <ul class="navbar-nav navbar-right">
 
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}" class="user-img-radious-style">
+                        <a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}"
+                                class="user-img-radious-style">
 
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello {{ strtoupper(session('username'))
-                                }}</div>
+                            <div class="dropdown-title">Hello {{ strtoupper(session('username')) }}</div>
 
                             <div class="dropdown-divider"></div>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
                                 @csrf
                             </form>
                             <a href="#" id="logout-link" class="dropdown-item has-icon text-danger">
@@ -105,10 +109,11 @@
                     <ul class="sidebar-menu">
                         <li class="dropdown">
                             <a href="{{ route('superadmin.dashboard') }}" class="nav-link toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-monitor">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2">
+                                    </rect>
                                     <line x1="8" y1="21" x2="16" y2="21"></line>
                                     <line x1="12" y1="17" x2="12" y2="21"></line>
                                 </svg><span>Dashboard</span></a>
@@ -116,9 +121,9 @@
                         <li class="menu-header">Table</li>
                         <li class="dropdown active">
                             <a href="#" class="menu-toggle nav-link has-dropdown toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-grid">
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
                                     <rect x="3" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="14" width="7" height="7"></rect>
@@ -130,14 +135,20 @@
                                 <li><a class="nav-link " href="{{ route('kegiatan.index') }}">Log
                                         Kegiatan</a></li>
                                 <li><a class="nav-link " href="{{ route('labpc.index') }}">Lab & Kelas</a></li>
-                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata
-                                        Kuliah</a></li>
+                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata Kuliah</a></li>
                                 <li>
                                     <a class="nav-link" href="{{ route('historyMatkul') }}">History Mata
                                         Kuliah</a>
                                 </li>
-                                <li class="active"><a class="nav-link " href="{{ route('user.index') }}">User</a></li>
-
+                                <li>
+                                    <a class="nav-link" href="{{ route('perbaikan.index') }}">List Perbaikan</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('historyPerbaikan') }}">History
+                                        Perbaikan</a>
+                                </li>
+                                <li class="active"><a class="nav-link " href="{{ route('user.index') }}">User</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -175,69 +186,75 @@
                                                     <thead>
                                                         <tr role="row">
                                                             <th class="text-center sorting_asc" tabindex="0"
-                                                                aria-controls="table-user" rowspan="1" colspan="1"
-                                                                aria-sort="ascending"
+                                                                aria-controls="table-user" rowspan="1"
+                                                                colspan="1" aria-sort="ascending"
                                                                 aria-label="#: activate to sort column descending"
                                                                 style="width: 35.9px;">#</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="table-user"
-                                                                rowspan="1" colspan="1"
+                                                            <th class="sorting" tabindex="0"
+                                                                aria-controls="table-user" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Username: activate to sort column ascending"
                                                                 style="width: 182.087px;">Username</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="table-user"
-                                                                rowspan="1" colspan="1"
+                                                            <th class="sorting" tabindex="0"
+                                                                aria-controls="table-user" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Level: activate to sort column ascending"
                                                                 style="width: 182.087px;">Level</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="table-user"
-                                                                rowspan="1" colspan="1"
+                                                            <th class="sorting" tabindex="0"
+                                                                aria-controls="table-user" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Actions: activate to sort column ascending"
                                                                 style="width: 182.087px;">Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         @forelse ($data as $index => $user)
-                                                        <tr>
-                                                            <td>{{ $index + 1 }}</td>
-                                                            <td>{{ $user->username }}</td>
-                                                            <td>
-                                                                @if($user->level === 'superadmin')
-                                                                <span class="badge badge-primary">{{ $user->level
-                                                                    }}</span>
-                                                                @elseif($user->level === 'dosen')
-                                                                <span class="badge badge-info">{{ $user->level }}</span>
-                                                                @elseif($user->level === 'ail')
-                                                                <span class="badge badge-warning">{{ $user->level
-                                                                    }}</span>
-                                                                @else
-                                                                {{ $user->level }}
-                                                                @endif
-                                                            </td>
+                                                            <tr>
+                                                                <td>{{ $index + 1 }}</td>
+                                                                <td>{{ $user->username }}</td>
+                                                                <td>
+                                                                    @if ($user->level === 'superadmin')
+                                                                        <span
+                                                                            class="badge badge-primary">{{ $user->level }}</span>
+                                                                    @elseif($user->level === 'dosen')
+                                                                        <span
+                                                                            class="badge badge-info">{{ $user->level }}</span>
+                                                                    @elseif($user->level === 'ail')
+                                                                        <span
+                                                                            class="badge badge-warning">{{ $user->level }}</span>
+                                                                    @else
+                                                                        {{ $user->level }}
+                                                                    @endif
+                                                                </td>
 
-                                                            <td class="text-center">
-                                                                <a href="#" class="btn btn-sm btn-primary"
-                                                                    data-toggle="modal"
-                                                                    data-target="#editUserModal{{ $user->id }}">
-                                                                    <i class="fas fa-edit"></i>
-                                                                </a>
+                                                                <td class="text-center">
+                                                                    <a href="#" class="btn btn-sm btn-primary"
+                                                                        data-toggle="modal"
+                                                                        data-target="#editUserModal{{ $user->id }}">
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </a>
 
-                                                                <form action="{{ route('user.destroy', $user->id) }}"
-                                                                    method="post" style="display: inline-block;">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="btn btn-sm btn-danger"
-                                                                        onclick="return confirm('Apakah Anda Yakin ?');">
-                                                                        <i class="fa fa-trash"></i>
-                                                                    </button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
+                                                                    <form
+                                                                        action="{{ route('user.destroy', $user->id) }}"
+                                                                        method="post" style="display: inline-block;">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit"
+                                                                            class="btn btn-sm btn-danger"
+                                                                            onclick="return confirm('Apakah Anda Yakin ?');">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
                                                         @empty
-                                                        <tr>
-                                                            <td colspan="4" class="text-center">
-                                                                <div class="alert alert-danger">
-                                                                    Data Pengguna belum Tersedia.
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td colspan="4" class="text-center">
+                                                                    <div class="alert alert-danger">
+                                                                        Data Pengguna belum Tersedia.
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
                                                         @endforelse
                                                     </tbody>
                                                 </table>
@@ -256,55 +273,59 @@
 
             <!-- Modal Edit User -->
             @foreach ($data as $user)
-            <div class="modal fade" id="editUserModal{{ $user->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="editUserModalLabel{{ $user->id }}" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel{{ $user->id }}">Edit User</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Form untuk mengedit user -->
-                            <form action="{{ route('user.update', $user->id) }}" method="post">
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label for="editUsername{{ $user->id }}">Username</label>
-                                    <input type="text" class="form-control" id="editUsername{{ $user->id }}"
-                                        name="username" value="{{ $user->username }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="editPassword{{ $user->id }}">Password</label>
-                                    <input type="password" class="form-control" id="editPassword{{ $user->id }}"
-                                        name="password">
-                                </div>
-                                <div class="form-group">
-                                    <label for="editLevel{{ $user->id }}">Level</label>
-                                    <select class="form-control" id="editLevel{{ $user->id }}" name="level">
-					 <option value="superadmin" {{ $user->level === 'superadmin' ? 'selected' : ''
-					    }}>superadmin</option>
-					 <option value="dosen" {{ $user->level === 'dosen' ? 'selected' : '' }}>dosen
-                                        </option>
-                                        <option value="ail" {{ $user->level === 'ail' ? 'selected' : '' }}>ail
-                                        </option>
-					 </select>
-                                </div>
+                <div class="modal fade" id="editUserModal{{ $user->id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="editUserModalLabel{{ $user->id }}" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel{{ $user->id }}">Edit User</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Form untuk mengedit user -->
+                                <form action="{{ route('user.update', $user->id) }}" method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="form-group">
+                                        <label for="editUsername{{ $user->id }}">Username</label>
+                                        <input type="text" class="form-control"
+                                            id="editUsername{{ $user->id }}" name="username"
+                                            value="{{ $user->username }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editPassword{{ $user->id }}">Password</label>
+                                        <input type="password" class="form-control"
+                                            id="editPassword{{ $user->id }}" name="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editLevel{{ $user->id }}">Level</label>
+                                        <select class="form-control" id="editLevel{{ $user->id }}"
+                                            name="level">
+                                            <option value="superadmin"
+                                                {{ $user->level === 'superadmin' ? 'selected' : '' }}>superadmin
+                                            </option>
+                                            <option value="dosen" {{ $user->level === 'dosen' ? 'selected' : '' }}>
+                                                dosen
+                                            </option>
+                                            <option value="ail" {{ $user->level === 'ail' ? 'selected' : '' }}>ail
+                                            </option>
+                                        </select>
+                                    </div>
 
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </form>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
             <!-- Modal Edit User -->
 
 
-            <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog"
+                aria-labelledby="addUserModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -319,11 +340,13 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" required>
+                                    <input type="text" class="form-control" id="username" name="username"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="level">Level</label>
@@ -360,12 +383,13 @@
                     <h6 class="font-medium m-b-10">Select Layout</h6>
                     <div class="selectgroup layout-color w-50">
                         <label class="selectgroup-item">
-                            <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout"
-                                checked="">
+                            <input type="radio" name="value" value="1"
+                                class="selectgroup-input-radio select-layout" checked="">
                             <span class="selectgroup-button">Light</span>
                         </label>
                         <label class="selectgroup-item">
-                            <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                            <input type="radio" name="value" value="2"
+                                class="selectgroup-input-radio select-layout">
                             <span class="selectgroup-button">Dark</span>
                         </label>
                     </div>
@@ -374,13 +398,14 @@
                     <h6 class="font-medium m-b-10">Sidebar Color</h6>
                     <div class="selectgroup selectgroup-pills sidebar-color">
                         <label class="selectgroup-item">
-                            <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                            <input type="radio" name="icon-input" value="1"
+                                class="selectgroup-input select-sidebar">
                             <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
                                 data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
                         </label>
                         <label class="selectgroup-item">
-                            <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar"
-                                checked="">
+                            <input type="radio" name="icon-input" value="2"
+                                class="selectgroup-input select-sidebar" checked="">
                             <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
                                 data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
                         </label>
@@ -481,19 +506,19 @@
                 showConfirmButton: false,
                 timer: 1100
             });
-        @elseif(session('error'))
-        Swal.fire({
-            icon: 'error',
-            title: '{{ session('error') }}',
-            showConfirmButton: false,
-            timer: 1100
-        });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: '{{ session('error') }}',
+                showConfirmButton: false,
+                timer: 1100
+            });
         @endif
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Handle logout link click
-            $('a#logout-link').click(function (event) {
+            $('a#logout-link').click(function(event) {
                 event.preventDefault(); // Prevent default link behavior
                 $('#logout-form').submit(); // Submit the form
             });

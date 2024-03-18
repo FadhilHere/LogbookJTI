@@ -45,18 +45,20 @@
                 <div class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
-									collapse-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-align-justify">
+									collapse-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-align-justify">
                                     <line x1="21" y1="10" x2="3" y2="10"></line>
                                     <line x1="21" y1="6" x2="3" y2="6"></line>
                                     <line x1="21" y1="14" x2="3" y2="14"></line>
                                     <line x1="21" y1="18" x2="3" y2="18"></line>
                                 </svg></a></li>
                         <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-maximize">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize">
                                     <path
                                         d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
                                     </path>
@@ -66,24 +68,26 @@
                     </ul>
                 </div>
                 <span class="badge badge-secondary custom-badge-style">
-                    <span class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username'))
-                        }}</span>
+                    <span
+                        class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username')) }}</span>
                 </span>
 
                 <ul class="navbar-nav navbar-right">
 
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}" class="user-img-radious-style">
+                        <a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}"
+                                class="user-img-radious-style">
 
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello {{ strtoupper(session('username'))
-                                }}</div>
+                            <div class="dropdown-title">Hello {{ strtoupper(session('username')) }}</div>
 
                             <div class="dropdown-divider"></div>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
                                 @csrf
                             </form>
                             <a href="#" id="logout-link" class="dropdown-item has-icon text-danger">
@@ -104,10 +108,11 @@
                     <ul class="sidebar-menu">
                         <li class="dropdown">
                             <a href="{{ route('superadmin.dashboard') }}" class="nav-link toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-monitor">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2">
+                                    </rect>
                                     <line x1="8" y1="21" x2="16" y2="21"></line>
                                     <line x1="12" y1="17" x2="12" y2="21"></line>
                                 </svg><span>Dashboard</span></a>
@@ -115,9 +120,9 @@
                         <li class="menu-header">Table</li>
                         <li class="dropdown active">
                             <a href="#" class="menu-toggle nav-link has-dropdown toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-grid">
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
                                     <rect x="3" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="14" width="7" height="7"></rect>
@@ -129,17 +134,23 @@
                                 <li><a class="nav-link " href="{{ route('kegiatan.index') }}">Log
                                         Kegiatan</a></li>
                                 <li class="active"><a class="nav-link " href="{{ route('labpc.index') }}">Lab &
-                                        Kelas</a>
-
-                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata Kuliah</a></li>
+                                        Kelas</a></li>
+                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata
+                                        Kuliah</a></li>
                                 <li>
                                     <a class="nav-link" href="{{ route('historyMatkul') }}">History Mata
                                         Kuliah</a>
                                 </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('perbaikan.index') }}">List Perbaikan</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('historyPerbaikan') }}">History
+                                        Perbaikan</a>
+                                </li>
                                 <li><a class="nav-link " href="{{ route('user.index') }}">User</a></li>
+                            </ul>
                         </li>
-                    </ul>
-                    </li>
                     </ul>
                 </aside>
             </div>
@@ -171,16 +182,18 @@
                                                     <thead>
                                                         <tr role="row">
                                                             <th class="text-center sorting_asc" tabindex="0"
-                                                                aria-controls="table-lab" rowspan="1" colspan="1"
-                                                                aria-sort="ascending"
+                                                                aria-controls="table-lab" rowspan="1"
+                                                                colspan="1" aria-sort="ascending"
                                                                 aria-label="#: activate to sort column descending"
                                                                 style="width: 35.9px;">#</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="table-lab"
-                                                                rowspan="1" colspan="1"
+                                                            <th class="sorting" tabindex="0"
+                                                                aria-controls="table-lab" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Task Name: activate to sort column ascending"
                                                                 style="width: 182.087px;">Ruang Lab</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="table-lab"
-                                                                rowspan="1" colspan="1"
+                                                            <th class="sorting" tabindex="0"
+                                                                aria-controls="table-lab" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Task Name: activate to sort column ascending"
                                                                 style="width: 182.087px;">Aksi</th>
                                                     </thead>
@@ -191,10 +204,10 @@
                                                         </a>
 
                                                         @forelse ($datalab as $index => $lab)
-                                                        <tr>
-                                                            <td>{{ $index + 1 }}</td>
-                                                            <td>{{ $lab->ruang_lab }}</td>
-                                                            <!-- <td class="text-center">
+                                                            <tr>
+                                                                <td>{{ $index + 1 }}</td>
+                                                                <td>{{ $lab->ruang_lab }}</td>
+                                                                <!-- <td class="text-center">
                                                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                                     action="{{ route('labpc.destroy', $lab->id_lab) }}"
                                                                     method="post">
@@ -210,33 +223,36 @@
                                                                     </button>
                                                                 </form>
                                                             </td> -->
-                                                            <td class="text-center">
-                                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                                    action="{{ route('labpc.destroy', $lab->id_lab) }}"
-                                                                    method="post">
-                                                                    <button type="button" class="btn btn-sm btn-primary"
-                                                                        data-toggle="modal"
-                                                                        data-target="#editModal{{ $lab->id_lab }}"
-                                                                        title="Detail">
-                                                                        <i class="fas fa-edit"></i>
-                                                                    </button>
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="btn btn-sm btn-danger"
-                                                                        title="Hapus">
-                                                                        <i class="fa fa-trash"></i>
-                                                                    </button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
+                                                                <td class="text-center">
+                                                                    <form
+                                                                        onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                                        action="{{ route('labpc.destroy', $lab->id_lab) }}"
+                                                                        method="post">
+                                                                        <button type="button"
+                                                                            class="btn btn-sm btn-primary"
+                                                                            data-toggle="modal"
+                                                                            data-target="#editModal{{ $lab->id_lab }}"
+                                                                            title="Detail">
+                                                                            <i class="fas fa-edit"></i>
+                                                                        </button>
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit"
+                                                                            class="btn btn-sm btn-danger"
+                                                                            title="Hapus">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
                                                         @empty
-                                                        <tr>
-                                                            <td colspan="10" class="text-center">
-                                                                <div class="alert alert-danger">
-                                                                    Data Lab kegiatan belum Tersedia.
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td colspan="10" class="text-center">
+                                                                    <div class="alert alert-danger">
+                                                                        Data Lab kegiatan belum Tersedia.
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
                                                         @endforelse
                                                     </tbody>
                                                 </table>
@@ -272,12 +288,12 @@
                                                                 aria-sort="ascending"
                                                                 aria-label="#: activate to sort column descending"
                                                                 style="width: 35.9px;">#</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="table-2"
-                                                                rowspan="1" colspan="1"
+                                                            <th class="sorting" tabindex="0"
+                                                                aria-controls="table-2" rowspan="1" colspan="1"
                                                                 aria-label="Kelas: activate to sort column ascending"
                                                                 style="width: 182.087px;">Nama Kelas</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="table-2"
-                                                                rowspan="1" colspan="1"
+                                                            <th class="sorting" tabindex="0"
+                                                                aria-controls="table-2" rowspan="1" colspan="1"
                                                                 aria-label="Aksi: activate to sort column ascending"
                                                                 style="width: 182.087px;">Aksi</th>
                                                         </tr>
@@ -289,37 +305,40 @@
                                                         </a>
 
                                                         @forelse ($datapc as $index => $kelas)
-                                                        <tr>
-                                                            <td>{{ $index + 1 }}</td>
-                                                            <td>{{ $kelas->nama_kelas }}</td>
+                                                            <tr>
+                                                                <td>{{ $index + 1 }}</td>
+                                                                <td>{{ $kelas->nama_kelas }}</td>
 
-                                                            <td class="text-center">
-                                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                                    action="{{ route('pc.destroy', $kelas->id_kelas) }}"
-                                                                    method="post">
-                                                                    <button type="button" class="btn btn-sm btn-primary"
-                                                                        data-toggle="modal"
-                                                                        data-target="#editModalKelas{{ $kelas->id_kelas }}"
-                                                                        title="Detail">
-                                                                        <i class="fas fa-edit"></i>
-                                                                    </button>
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="btn btn-sm btn-danger"
-                                                                        title="Hapus">
-                                                                        <i class="fa fa-trash"></i>
-                                                                    </button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
+                                                                <td class="text-center">
+                                                                    <form
+                                                                        onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                                        action="{{ route('pc.destroy', $kelas->id_kelas) }}"
+                                                                        method="post">
+                                                                        <button type="button"
+                                                                            class="btn btn-sm btn-primary"
+                                                                            data-toggle="modal"
+                                                                            data-target="#editModalKelas{{ $kelas->id_kelas }}"
+                                                                            title="Detail">
+                                                                            <i class="fas fa-edit"></i>
+                                                                        </button>
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit"
+                                                                            class="btn btn-sm btn-danger"
+                                                                            title="Hapus">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
                                                         @empty
-                                                        <tr>
-                                                            <td colspan="3" class="text-center">
-                                                                <div class="alert alert-danger">
-                                                                    Data Kelas belum Tersedia.
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td colspan="3" class="text-center">
+                                                                    <div class="alert alert-danger">
+                                                                        Data Kelas belum Tersedia.
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
                                                         @endforelse
                                                     </tbody>
                                                 </table>
@@ -335,8 +354,8 @@
             </div>
 
             <!-- Modal Tambah Kelas -->
-            <div class="modal fade" id="addKelasModal" tabindex="-1" role="dialog" aria-labelledby="addKelasModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="addKelasModal" tabindex="-1" role="dialog"
+                aria-labelledby="addKelasModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -351,7 +370,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama_kelas">Nama Kelas</label>
-                                    <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" required>
+                                    <input type="text" class="form-control" id="nama_kelas" name="nama_kelas"
+                                        required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </form>
@@ -362,40 +382,40 @@
 
             <!-- Modal Edit Kelas -->
             @foreach ($datapc as $kelas)
-            <div class="modal fade" id="editModalKelas{{ $kelas->id_kelas }}" tabindex="-1" role="dialog"
-                aria-labelledby="editModalKelasLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalKelasLabel">Edit Kelas</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Form untuk mengedit kelas -->
-                            <form action="{{ route('pc.update', $kelas->id_kelas) }}" method="post">
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label for="editNamaKelas">Nama Kelas</label>
-                                    <input type="text" class="form-control" id="editNamaKelas" name="nama_kelas"
-                                        value="{{ $kelas->nama_kelas }}">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                            </form>
+                <div class="modal fade" id="editModalKelas{{ $kelas->id_kelas }}" tabindex="-1" role="dialog"
+                    aria-labelledby="editModalKelasLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalKelasLabel">Edit Kelas</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Form untuk mengedit kelas -->
+                                <form action="{{ route('pc.update', $kelas->id_kelas) }}" method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="form-group">
+                                        <label for="editNamaKelas">Nama Kelas</label>
+                                        <input type="text" class="form-control" id="editNamaKelas"
+                                            name="nama_kelas" value="{{ $kelas->nama_kelas }}">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
 
             <!-- Modal Edit PC -->
 
 
             <!-- Modal Tambah Lab -->
-            <div class="modal fade" id="addLabModal" tabindex="-1" role="dialog" aria-labelledby="addLabModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="addLabModal" tabindex="-1" role="dialog"
+                aria-labelledby="addLabModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -411,7 +431,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="ruang_lab">Ruang Lab</label>
-                                    <input type="text" class="form-control" id="ruang_lab" name="ruang_lab" required>
+                                    <input type="text" class="form-control" id="ruang_lab" name="ruang_lab"
+                                        required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </form>
@@ -421,32 +442,32 @@
             </div>
             <!-- Modal Edit Lab -->
             @foreach ($datalab as $lab)
-            <div class="modal fade" id="editModal{{ $lab->id_lab }}" tabindex="-1" role="dialog"
-                aria-labelledby="editModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit Lab</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Form untuk mengedit lab -->
-                            <form action="{{ route('labpc.update', $lab->id_lab) }}" method="post">
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label for="editRuangLab">Ruang Lab</label>
-                                    <input type="text" class="form-control" id="editRuangLab" name="ruang_lab"
-                                        value="{{ $lab->ruang_lab }}">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                            </form>
+                <div class="modal fade" id="editModal{{ $lab->id_lab }}" tabindex="-1" role="dialog"
+                    aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Lab</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Form untuk mengedit lab -->
+                                <form action="{{ route('labpc.update', $lab->id_lab) }}" method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="form-group">
+                                        <label for="editRuangLab">Ruang Lab</label>
+                                        <input type="text" class="form-control" id="editRuangLab"
+                                            name="ruang_lab" value="{{ $lab->ruang_lab }}">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
             <!-- Modal Edit Lab -->
 
@@ -468,12 +489,13 @@
                     <h6 class="font-medium m-b-10">Select Layout</h6>
                     <div class="selectgroup layout-color w-50">
                         <label class="selectgroup-item">
-                            <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout"
-                                checked="">
+                            <input type="radio" name="value" value="1"
+                                class="selectgroup-input-radio select-layout" checked="">
                             <span class="selectgroup-button">Light</span>
                         </label>
                         <label class="selectgroup-item">
-                            <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                            <input type="radio" name="value" value="2"
+                                class="selectgroup-input-radio select-layout">
                             <span class="selectgroup-button">Dark</span>
                         </label>
                     </div>
@@ -482,13 +504,14 @@
                     <h6 class="font-medium m-b-10">Sidebar Color</h6>
                     <div class="selectgroup selectgroup-pills sidebar-color">
                         <label class="selectgroup-item">
-                            <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                            <input type="radio" name="icon-input" value="1"
+                                class="selectgroup-input select-sidebar">
                             <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
                                 data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
                         </label>
                         <label class="selectgroup-item">
-                            <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar"
-                                checked="">
+                            <input type="radio" name="icon-input" value="2"
+                                class="selectgroup-input select-sidebar" checked="">
                             <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
                                 data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
                         </label>
@@ -589,19 +612,19 @@
                 showConfirmButton: false,
                 timer: 1100
             });
-        @elseif(session('error'))
-        Swal.fire({
-            icon: 'error',
-            title: '{{ session('error') }}',
-            showConfirmButton: false,
-            timer: 1100
-        });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: '{{ session('error') }}',
+                showConfirmButton: false,
+                timer: 1100
+            });
         @endif
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Handle logout link click
-            $('a#logout-link').click(function (event) {
+            $('a#logout-link').click(function(event) {
                 event.preventDefault(); // Prevent default link behavior
                 $('#logout-form').submit(); // Submit the form
             });

@@ -46,18 +46,20 @@
                 <div class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
-									collapse-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-align-justify">
+									collapse-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-align-justify">
                                     <line x1="21" y1="10" x2="3" y2="10"></line>
                                     <line x1="21" y1="6" x2="3" y2="6"></line>
                                     <line x1="21" y1="14" x2="3" y2="14"></line>
                                     <line x1="21" y1="18" x2="3" y2="18"></line>
                                 </svg></a></li>
                         <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-maximize">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize">
                                     <path
                                         d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
                                     </path>
@@ -67,24 +69,26 @@
                     </ul>
                 </div>
                 <span class="badge badge-secondary custom-badge-style">
-                    <span class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username'))
-                        }}</span>
+                    <span
+                        class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username')) }}</span>
                 </span>
 
                 <ul class="navbar-nav navbar-right">
 
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}" class="user-img-radious-style">
+                        <a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}"
+                                class="user-img-radious-style">
 
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello {{ strtoupper(session('username'))
-                                }}</div>
+                            <div class="dropdown-title">Hello {{ strtoupper(session('username')) }}</div>
 
                             <div class="dropdown-divider"></div>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
                                 @csrf
                             </form>
                             <a href="#" id="logout-link" class="dropdown-item has-icon text-danger">
@@ -105,10 +109,11 @@
                     <ul class="sidebar-menu">
                         <li class="dropdown">
                             <a href="{{ route('superadmin.dashboard') }}" class="nav-link toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-monitor">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2">
+                                    </rect>
                                     <line x1="8" y1="21" x2="16" y2="21"></line>
                                     <line x1="12" y1="17" x2="12" y2="21"></line>
                                 </svg><span>Dashboard</span></a>
@@ -116,9 +121,9 @@
                         <li class="menu-header">Table</li>
                         <li class="dropdown active">
                             <a href="#" class="menu-toggle nav-link has-dropdown toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-grid">
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
                                     <rect x="3" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="14" width="7" height="7"></rect>
@@ -130,15 +135,19 @@
                                 <li><a class="nav-link " href="{{ route('kegiatan.index') }}">Log
                                         Kegiatan</a></li>
                                 <li><a class="nav-link " href="{{ route('labpc.index') }}">Lab & Kelas</a></li>
-                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata
-                                        Kuliah</a></li>
+                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata Kuliah</a></li>
                                 <li class="active">
                                     <a class="nav-link" href="{{ route('historyMatkul') }}">History Mata
                                         Kuliah</a>
                                 </li>
-
+                                <li>
+                                    <a class="nav-link" href="{{ route('perbaikan.index') }}">List Perbaikan</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('historyPerbaikan') }}">History
+                                        Perbaikan</a>
+                                </li>
                                 <li><a class="nav-link " href="{{ route('user.index') }}">User</a></li>
-
                             </ul>
                         </li>
                     </ul>
@@ -183,20 +192,22 @@
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="labFilterDropdown">
                                                                 <a class="dropdown-item lab-filter-dropdown-item"
-                                                                    href="#" data-value="semua_lab">Semua Lab</a>
-                                                                @foreach($listRuangLab as $ruangLab)
-                                                                <a class="dropdown-item lab-filter-dropdown-item"
-                                                                    href="#" data-value="{{ $ruangLab }}">{{ $ruangLab
-                                                                    }}</a>
+                                                                    href="#" data-value="semua_lab">Semua
+                                                                    Lab</a>
+                                                                @foreach ($listRuangLab as $ruangLab)
+                                                                    <a class="dropdown-item lab-filter-dropdown-item"
+                                                                        href="#"
+                                                                        data-value="{{ $ruangLab }}">{{ $ruangLab }}</a>
                                                                 @endforeach
                                                             </div>
                                                         </div>
 
                                                         <!-- Dropdown for Filter Semester -->
                                                         <div class="dropdown mr-3">
-                                                            <button class="btn btn-info dropdown-toggle" type="button"
-                                                                id="semesterFilterDropdown" data-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false">
+                                                            <button class="btn btn-info dropdown-toggle"
+                                                                type="button" id="semesterFilterDropdown"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
                                                                 Filter Semester
                                                             </button>
                                                             <div class="dropdown-menu"
@@ -222,10 +233,12 @@
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="tahunFilterDropdown">
                                                                 <a class="dropdown-item tahun-filter-dropdown-item"
-                                                                    href="#" data-value="semua_tahun">Semua Tahun</a>
-                                                                @foreach($tahunOptions as $tahun)
-                                                                <a class="dropdown-item tahun-filter-dropdown-item"
-                                                                    href="#" data-value="{{ $tahun }}">{{ $tahun }}</a>
+                                                                    href="#" data-value="semua_tahun">Semua
+                                                                    Tahun</a>
+                                                                @foreach ($tahunOptions as $tahun)
+                                                                    <a class="dropdown-item tahun-filter-dropdown-item"
+                                                                        href="#"
+                                                                        data-value="{{ $tahun }}">{{ $tahun }}</a>
                                                                 @endforeach
                                                             </div>
                                                         </div>
@@ -251,106 +264,120 @@
                                                     <thead>
                                                         <tr role="row">
                                                             <th class="text-center sorting_asc" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
-                                                                aria-sort="ascending"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1" aria-sort="ascending"
                                                                 aria-label="#: activate to sort column descending"
                                                                 style="width: 35.9px;">#</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Mata Kuliah: activate to sort column ascending"
                                                                 style="width: 182.087px;">Mata Kuliah</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Mata Kuliah: activate to sort column ascending"
                                                                 style="width: 182.087px;">Ruang Lab</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Jam Masuk: activate to sort column ascending"
                                                                 style="width: 182.087px;">Jam Masuk</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Jam Keluar: activate to sort column ascending"
                                                                 style="width: 182.087px;">Jam Keluar</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="SKS: activate to sort column ascending"
                                                                 style="width: 182.087px;">SKS</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Dosen: activate to sort column ascending"
                                                                 style="width: 182.087px;">Dosen</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Dosen: activate to sort column ascending"
                                                                 style="width: 182.087px;">AIL</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Semester: activate to sort column ascending"
                                                                 style="width: 182.087px;">Semester</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Status: activate to sort column ascending"
                                                                 style="width: 182.087px;">Status</th>
                                                             <th class="sorting" tabindex="0"
-                                                                aria-controls="table-matakuliah" rowspan="1" colspan="1"
+                                                                aria-controls="table-matakuliah" rowspan="1"
+                                                                colspan="1"
                                                                 aria-label="Actions: activate to sort column ascending"
                                                                 style="width: 182.087px;">Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         @forelse ($matakuliahs as $index => $matakuliah)
-                                                        <tr>
-                                                            <td>{{ $index + 1 }}</td>
-                                                            <td>{{ $matakuliah->matkul }}</td>
-                                                            <td>{{ $matakuliah->ruang_lab }}</td>
-                                                            <td>{{ $matakuliah->jamMasuk }}</td>
-                                                            <td>{{ $matakuliah->jamKeluar }}</td>
-                                                            <td>{{ $matakuliah->sks }}</td>
-                                                            <td>{{ $matakuliah->dosen }}</td>
-                                                            <td>{{ $matakuliah->ail }}</td>
-                                                            <td>{{ $matakuliah->semester }}</td>
-                                                            <td>
-                                                                @php
-                                                                $now = \Carbon\Carbon::now();
-                                                                $tanggalMulai =
-                                                                \Carbon\Carbon::parse($matakuliah->tanggal);
-                                                                $tanggalSelesai =
-                                                                \Carbon\Carbon::parse($matakuliah->tanggalSelesai);
-                                                                @endphp
-                                                                @if($now->between($tanggalMulai, $tanggalSelesai))
-                                                                <span class="badge badge-success">Aktif</span>
-                                                                @else
-                                                                <span class="badge badge-danger">Non-Aktif</span>
-                                                                @endif
-                                                            </td>
+                                                            <tr>
+                                                                <td>{{ $index + 1 }}</td>
+                                                                <td>{{ $matakuliah->matkul }}</td>
+                                                                <td>{{ $matakuliah->ruang_lab }}</td>
+                                                                <td>{{ $matakuliah->jamMasuk }}</td>
+                                                                <td>{{ $matakuliah->jamKeluar }}</td>
+                                                                <td>{{ $matakuliah->sks }}</td>
+                                                                <td>{{ $matakuliah->dosen }}</td>
+                                                                <td>{{ $matakuliah->ail }}</td>
+                                                                <td>{{ $matakuliah->semester }}</td>
+                                                                <td>
+                                                                    @php
+                                                                        $now = \Carbon\Carbon::now();
+                                                                        $tanggalMulai = \Carbon\Carbon::parse(
+                                                                            $matakuliah->tanggal,
+                                                                        );
+                                                                        $tanggalSelesai = \Carbon\Carbon::parse(
+                                                                            $matakuliah->tanggalSelesai,
+                                                                        );
+                                                                    @endphp
+                                                                    @if ($now->between($tanggalMulai, $tanggalSelesai))
+                                                                        <span class="badge badge-success">Aktif</span>
+                                                                    @else
+                                                                        <span
+                                                                            class="badge badge-danger">Non-Aktif</span>
+                                                                    @endif
+                                                                </td>
 
 
-                                                            <td class="text-center">
-                                                                <!-- <a href="#" class="btn btn-sm btn-primary"
+                                                                <td class="text-center">
+                                                                    <!-- <a href="#" class="btn btn-sm btn-primary"
                                                                     data-toggle="modal"
                                                                     data-target="#editMatkulModal{{ $matakuliah->id_matakuliah }}">
                                                                     <i class="fas fa-edit"></i>
                                                                 </a> -->
-                                                                <form
-                                                                    action="{{ route('matkul.destroy', $matakuliah->id_matakuliah) }}"
-                                                                    method="post" style="display: inline-block;">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="btn btn-sm btn-danger"
-                                                                        onclick="return confirm('Apakah Anda Yakin ?');">
-                                                                        <i class="fa fa-trash"></i>
-                                                                    </button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
+                                                                    <form
+                                                                        action="{{ route('matkul.destroy', $matakuliah->id_matakuliah) }}"
+                                                                        method="post" style="display: inline-block;">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit"
+                                                                            class="btn btn-sm btn-danger"
+                                                                            onclick="return confirm('Apakah Anda Yakin ?');">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
                                                         @empty
-                                                        <tr>
-                                                            <td colspan="7" class="text-center">
-                                                                <div class="alert alert-danger">
-                                                                    Data Matakuliah belum Tersedia.
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td colspan="7" class="text-center">
+                                                                    <div class="alert alert-danger">
+                                                                        Data Matakuliah belum Tersedia.
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
                                                         @endforelse
                                                     </tbody>
                                                 </table>
@@ -369,75 +396,79 @@
 
 
             @foreach ($matakuliahs as $matakuliah)
-            <div class="modal fade" id="editMatkulModal{{ $matakuliah->id_matakuliah }}" tabindex="-1" role="dialog"
-                aria-labelledby="editMatkulModalLabel{{ $matakuliah->id_matakuliah }}" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editMatkulModalLabel{{ $matakuliah->id_matakuliah }}">Edit
-                                Matakuliah</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Form untuk mengedit matakuliah -->
-                            <form action="{{ route('matkul.update', $matakuliah->id_matakuliah) }}" method="post">
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label for="editMatkul{{ $matakuliah->id_matakuliah }}">Mata Kuliah</label>
-                                    <input type="text" class="form-control"
-                                        id="editMatkul{{ $matakuliah->id_matakuliah }}" name="matkul"
-                                        value="{{ $matakuliah->matkul }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="id_lab">Ruang Lab</label>
-                                    <select class="form-control" id="id_lab" name="id_lab" required>
-                                        @foreach($matakuliahs as $lab)
-                                        <option value="{{ $lab->id_lab }}" {{ $matakuliah->id_lab == $lab->id_lab ?
-                                            'selected' : '' }}>
-                                            {{ $lab->ruang_lab }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="editJamMasuk{{ $matakuliah->id_matakuliah }}">Jam Masuk</label>
-                                    <input type="time" class="form-control"
-                                        id="editJamMasuk{{ $matakuliah->id_matakuliah }}" name="jamMasuk"
-                                        value="{{ $matakuliah->jamMasuk }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="editJamKeluar{{ $matakuliah->id_matakuliah }}">Jam Keluar</label>
-                                    <input type="time" class="form-control"
-                                        id="editJamKeluar{{ $matakuliah->id_matakuliah }}" name="jamKeluar"
-                                        value="{{ $matakuliah->jamKeluar }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="editSks{{ $matakuliah->id_matakuliah }}">SKS</label>
-                                    <input type="text" class="form-control" id="editSks{{ $matakuliah->id_matakuliah }}"
-                                        name="sks" value="{{ $matakuliah->sks }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="editDosen{{ $matakuliah->id_matakuliah }}">Dosen</label>
-                                    <input type="text" class="form-control"
-                                        id="editDosen{{ $matakuliah->id_matakuliah }}" name="dosen"
-                                        value="{{ $matakuliah->dosen }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="editAil{{ $matakuliah->id_matakuliah }}">AIL</label>
-                                    <input type="text" class="form-control"
-                                        id="editDosen{{ $matakuliah->id_matakuliah }}" name="ail"
-                                        value="{{ $matakuliah->ail }}">
-                                </div>
+                <div class="modal fade" id="editMatkulModal{{ $matakuliah->id_matakuliah }}" tabindex="-1"
+                    role="dialog" aria-labelledby="editMatkulModalLabel{{ $matakuliah->id_matakuliah }}"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editMatkulModalLabel{{ $matakuliah->id_matakuliah }}">
+                                    Edit
+                                    Matakuliah</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Form untuk mengedit matakuliah -->
+                                <form action="{{ route('matkul.update', $matakuliah->id_matakuliah) }}"
+                                    method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="form-group">
+                                        <label for="editMatkul{{ $matakuliah->id_matakuliah }}">Mata Kuliah</label>
+                                        <input type="text" class="form-control"
+                                            id="editMatkul{{ $matakuliah->id_matakuliah }}" name="matkul"
+                                            value="{{ $matakuliah->matkul }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="id_lab">Ruang Lab</label>
+                                        <select class="form-control" id="id_lab" name="id_lab" required>
+                                            @foreach ($matakuliahs as $lab)
+                                                <option value="{{ $lab->id_lab }}"
+                                                    {{ $matakuliah->id_lab == $lab->id_lab ? 'selected' : '' }}>
+                                                    {{ $lab->ruang_lab }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editJamMasuk{{ $matakuliah->id_matakuliah }}">Jam Masuk</label>
+                                        <input type="time" class="form-control"
+                                            id="editJamMasuk{{ $matakuliah->id_matakuliah }}" name="jamMasuk"
+                                            value="{{ $matakuliah->jamMasuk }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editJamKeluar{{ $matakuliah->id_matakuliah }}">Jam Keluar</label>
+                                        <input type="time" class="form-control"
+                                            id="editJamKeluar{{ $matakuliah->id_matakuliah }}" name="jamKeluar"
+                                            value="{{ $matakuliah->jamKeluar }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editSks{{ $matakuliah->id_matakuliah }}">SKS</label>
+                                        <input type="text" class="form-control"
+                                            id="editSks{{ $matakuliah->id_matakuliah }}" name="sks"
+                                            value="{{ $matakuliah->sks }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDosen{{ $matakuliah->id_matakuliah }}">Dosen</label>
+                                        <input type="text" class="form-control"
+                                            id="editDosen{{ $matakuliah->id_matakuliah }}" name="dosen"
+                                            value="{{ $matakuliah->dosen }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editAil{{ $matakuliah->id_matakuliah }}">AIL</label>
+                                        <input type="text" class="form-control"
+                                            id="editDosen{{ $matakuliah->id_matakuliah }}" name="ail"
+                                            value="{{ $matakuliah->ail }}">
+                                    </div>
 
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </form>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
 
             <!-- Modal Tambah Matakuliah -->
@@ -457,35 +488,41 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="matkul">Mata Kuliah</label>
-                                    <input type="text" class="form-control" id="matkul" name="matkul" required>
+                                    <input type="text" class="form-control" id="matkul" name="matkul"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="id_lab">Ruang Lab</label>
                                     <select class="form-control" id="id_lab" name="id_lab" required>
-                                        @foreach($datalab as $lab)
-                                        <option value="{{ $lab->id_lab }}">{{ $lab->ruang_lab }}</option>
+                                        @foreach ($datalab as $lab)
+                                            <option value="{{ $lab->id_lab }}">{{ $lab->ruang_lab }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="jamMasuk">Jam Masuk</label>
-                                    <input type="time" class="form-control" id="jamMasuk" name="jamMasuk" required>
+                                    <input type="time" class="form-control" id="jamMasuk" name="jamMasuk"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="jamKeluar">Jam Keluar</label>
-                                    <input type="time" class="form-control" id="jamKeluar" name="jamKeluar" required>
+                                    <input type="time" class="form-control" id="jamKeluar" name="jamKeluar"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="sks">SKS</label>
-                                    <input type="text" class="form-control" id="sks" name="sks" required>
+                                    <input type="text" class="form-control" id="sks" name="sks"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="dosen">Dosen</label>
-                                    <input type="text" class="form-control" id="dosen" name="dosen" required>
+                                    <input type="text" class="form-control" id="dosen" name="dosen"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="dosen">AIL</label>
-                                    <input type="text" class="form-control" id="ail" name="ail" required>
+                                    <input type="text" class="form-control" id="ail" name="ail"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="semester">Semester</label>
@@ -524,12 +561,13 @@
                     <h6 class="font-medium m-b-10">Select Layout</h6>
                     <div class="selectgroup layout-color w-50">
                         <label class="selectgroup-item">
-                            <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout"
-                                checked="">
+                            <input type="radio" name="value" value="1"
+                                class="selectgroup-input-radio select-layout" checked="">
                             <span class="selectgroup-button">Light</span>
                         </label>
                         <label class="selectgroup-item">
-                            <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                            <input type="radio" name="value" value="2"
+                                class="selectgroup-input-radio select-layout">
                             <span class="selectgroup-button">Dark</span>
                         </label>
                     </div>
@@ -538,13 +576,14 @@
                     <h6 class="font-medium m-b-10">Sidebar Color</h6>
                     <div class="selectgroup selectgroup-pills sidebar-color">
                         <label class="selectgroup-item">
-                            <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                            <input type="radio" name="icon-input" value="1"
+                                class="selectgroup-input select-sidebar">
                             <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
                                 data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
                         </label>
                         <label class="selectgroup-item">
-                            <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar"
-                                checked="">
+                            <input type="radio" name="icon-input" value="2"
+                                class="selectgroup-input select-sidebar" checked="">
                             <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
                                 data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
                         </label>
@@ -645,19 +684,19 @@
                 showConfirmButton: false,
                 timer: 1100
             });
-        @elseif(session('error'))
-        Swal.fire({
-            icon: 'error',
-            title: '{{ session('error') }}',
-            showConfirmButton: false,
-            timer: 1100
-        });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: '{{ session('error') }}',
+                showConfirmButton: false,
+                timer: 1100
+            });
         @endif
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Handle logout link click
-            $('a#logout-link').click(function (event) {
+            $('a#logout-link').click(function(event) {
                 event.preventDefault(); // Prevent default link behavior
                 $('#logout-form').submit(); // Submit the form
             });
@@ -665,9 +704,9 @@
     </script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Filter Lab
-            $('.lab-filter-dropdown-item').on('click', function (e) {
+            $('.lab-filter-dropdown-item').on('click', function(e) {
                 e.preventDefault();
                 var selectedLab = $(this).data('value');
                 $('#labFilter').val(selectedLab);
@@ -675,14 +714,14 @@
             });
 
             // Filter Semester
-            $('.semester-filter-dropdown-item').on('click', function () {
+            $('.semester-filter-dropdown-item').on('click', function() {
                 var semesterValue = $(this).data('value');
                 $('#semesterFilter').val(semesterValue);
                 $('#filterForm').submit();
             });
 
             // Filter Tahun
-            $('.tahun-filter-dropdown-item').on('click', function () {
+            $('.tahun-filter-dropdown-item').on('click', function() {
                 var tahunValue = $(this).data('value');
                 $('#tahunFilter').val(tahunValue);
                 $('#filterForm').submit();

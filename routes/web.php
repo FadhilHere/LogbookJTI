@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SLogDosenController;
 use App\Http\Controllers\LogDosenController;
+use App\Http\Controllers\PerbaikanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,8 @@ Route::prefix('superadmin')->middleware('checkRole:superadmin')->group(function 
     Route::delete('/kuliahDosenMhs/{id}', [SLogDosenController::class, 'destroyMhs'])->name('kuliahDosenMhs.destroyMhs');
     Route::get('/kuliah', [\App\Http\Controllers\SLogDosenController::class, 'kuliah'])->name('kuliahDosen.kuliah');
     Route::resource('/user', UserController::class);
+    Route::resource('/perbaikan', \App\Http\Controllers\PerbaikanController::class);
+    Route::get('/historyPerbaikan', [\App\Http\Controllers\PerbaikanController::class, 'historyPerbaikan'])->name('historyPerbaikan');
 });
 
 

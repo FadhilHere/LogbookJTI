@@ -41,7 +41,7 @@ class LogPerkuliahanController extends Controller
     {
         $term = $request->input('q');
 
-        
+
         $kelas = DB::table('kelas')
             ->where('nama_kelas', 'like', '%' . $term . '%')
             ->get();
@@ -60,7 +60,7 @@ class LogPerkuliahanController extends Controller
 
     public function getMatkulInfo($idLab, $idMatkul)
     {
-        
+
         $matkulInfo = DB::table('matakuliah')
             ->where('id_lab', $idLab)
             ->where('id_matakuliah', $idMatkul)
@@ -85,7 +85,7 @@ class LogPerkuliahanController extends Controller
 
         $matakuliahs = $this->getMatkulList($idLab);
 
-      
+
         $firstMatkul = $matakuliahs->first();
 
         $matkulInfo = $firstMatkul ? $this->getMatkulInfo($idLab, $firstMatkul->id_matakuliah) : null;
@@ -128,6 +128,16 @@ class LogPerkuliahanController extends Controller
         $durasi = Carbon::parse($jamKeluar)->diffInMinutes(Carbon::parse($jamMasuk));
 
 
+        $status = 'Selesai';
+        if (
+            $request->input('monitor') === 'rusak' ||
+            $request->input('keyboard') === 'rusak' ||
+            $request->input('mouse') === 'rusak' ||
+            $request->input('jaringan') === 'rusak'
+        ) {
+            $status = 'Belum Selesai';
+        }
+
         DB::table('logkuliah')->insert([
             'id_lab' => $request->input('lab'),
             'nama' => $request->input('nama'),
@@ -147,11 +157,12 @@ class LogPerkuliahanController extends Controller
             'keterangan' => $request->input('keterangan'),
             'alat' => $request->input('alat'),
             'durasi' => $durasi,
+            'status' => $status,
         ]);
 
         return redirect('/')->with(['success' => 'Data LogBook Berhasil Disimpan!']);
-
     }
+
 
     /**
      * Display the specified resource.

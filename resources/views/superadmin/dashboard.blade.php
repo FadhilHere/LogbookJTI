@@ -775,18 +775,20 @@
                 <div class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
-									collapse-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-align-justify">
+									collapse-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-align-justify">
                                     <line x1="21" y1="10" x2="3" y2="10"></line>
                                     <line x1="21" y1="6" x2="3" y2="6"></line>
                                     <line x1="21" y1="14" x2="3" y2="14"></line>
                                     <line x1="21" y1="18" x2="3" y2="18"></line>
                                 </svg></a></li>
                         <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-maximize">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize">
                                     <path
                                         d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
                                     </path>
@@ -796,21 +798,22 @@
                     </ul>
                 </div>
                 <span class="badge badge-secondary custom-badge-style">
-                    <span class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username'))
-                        }}</span>
+                    <span
+                        class="d-sm-none d-lg-inline-block custom-text-style">{{ strtoupper(session('username')) }}</span>
                 </span>
 
                 <ul class="navbar-nav navbar-right">
 
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}" class="user-img-radious-style">
+                        <a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src="{{ asset('assets/img/profil1.jpg') }}"
+                                class="user-img-radious-style">
 
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello {{ strtoupper(session('username'))
-                                }}</div>
+                            <div class="dropdown-title">Hello {{ strtoupper(session('username')) }}</div>
 
                             <div class="dropdown-divider"></div>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -834,10 +837,11 @@
                     <ul class="sidebar-menu">
                         <li class="dropdown active">
                             <a href="{{ route('superadmin.dashboard') }}" class="nav-link toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-monitor">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2">
+                                    </rect>
                                     <line x1="8" y1="21" x2="16" y2="21"></line>
                                     <line x1="12" y1="17" x2="12" y2="21"></line>
                                 </svg><span>Dashboard</span></a>
@@ -845,9 +849,9 @@
                         <li class="menu-header">Table</li>
                         <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown toggled"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-grid">
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
                                     <rect x="3" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="14" width="7" height="7"></rect>
@@ -863,6 +867,12 @@
                                 <li>
                                     <a class="nav-link" href="{{ route('historyMatkul') }}">History Mata
                                         Kuliah</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('perbaikan.index') }}">List Perbaikan</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('historyMatkul') }}">History Perbaikan</a>
                                 </li>
                                 <li><a class="nav-link " href="{{ route('user.index') }}">User</a></li>
                             </ul>
@@ -976,7 +986,8 @@
                                 <h4>Peralatan Rusak Selama Perkuliahan</h4>
                             </div>
                             <div class="card-body">
-                                <canvas id="pieChart" width="474" height="237" class="chartjs-render-monitor"></canvas>
+                                <canvas id="pieChart" width="474" height="237"
+                                    class="chartjs-render-monitor"></canvas>
                             </div>
                         </div>
                     </div>
@@ -1041,9 +1052,9 @@
             labels: ['Monitor', 'Keyboard', 'Mouse', 'Jaringan'],
             datasets: [{
                 data: {!! json_encode(array_values($pieChartDataKuliah)) !!}, // Mengambil nilai dari array asosiatif
-            backgroundColor: ['red', 'blue', 'green', 'yellow'], // Warna sesuai keinginan
-        }]
-    };
+                backgroundColor: ['red', 'blue', 'green', 'yellow'], // Warna sesuai keinginan
+            }]
+        };
 
         // Options (opsional, bisa disesuaikan)
         var options = {
@@ -1067,9 +1078,9 @@
             labels: ['Monitor', 'Keyboard', 'Mouse', 'Jaringan'],
             datasets: [{
                 data: {!! json_encode(array_values($pieChartDataKegiatan)) !!}, // Mengambil nilai dari array asosiatif
-            backgroundColor: ['red', 'blue', 'green', 'yellow'], // Warna sesuai keinginan
-        }]
-    };
+                backgroundColor: ['red', 'blue', 'green', 'yellow'], // Warna sesuai keinginan
+            }]
+        };
 
         // Options (opsional, bisa disesuaikan)
         var options = {
@@ -1094,11 +1105,13 @@
         var logbookData = @json($logbookData);
         var currentYear = new Date().getFullYear();
         // Inisialisasi array untuk menyimpan data bulan dan jumlah kegiatan
-        var months = Array.from({ length: 12 }, (_, i) => i + 1); // Array bulan 1-12
+        var months = Array.from({
+            length: 12
+        }, (_, i) => i + 1); // Array bulan 1-12
         var counts = Array(12).fill(0); // Inisialisasi array jumlah kegiatan dengan nilai 0
 
         // Membaca data dari hasil query dan mengisi nilai counts sesuai bulan
-        logbookData.forEach(function (item) {
+        logbookData.forEach(function(item) {
             var index = item.month - 1; // Bulan dimulai dari 1, sedangkan indeks array dimulai dari 0
             counts[index] = item.count;
         });
@@ -1107,8 +1120,10 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: months.map(function (month) {
-                    return new Date(currentYear, month - 1, 1).toLocaleString('default', { month: 'short' });
+                labels: months.map(function(month) {
+                    return new Date(currentYear, month - 1, 1).toLocaleString('default', {
+                        month: 'short'
+                    });
                 }), // Mengubah angka bulan menjadi nama bulan singkat (Jan, Feb, Mar, ...)
                 datasets: [{
                     label: 'Jumlah Log Book Kuliah 2024',
@@ -1132,11 +1147,13 @@
         var logbookData = @json($logbookDataKegiatan);
         var currentYear = new Date().getFullYear();
         // Inisialisasi array untuk menyimpan data bulan dan jumlah kegiatan
-        var months = Array.from({ length: 12 }, (_, i) => i + 1); // Array bulan 1-12
+        var months = Array.from({
+            length: 12
+        }, (_, i) => i + 1); // Array bulan 1-12
         var counts = Array(12).fill(0); // Inisialisasi array jumlah kegiatan dengan nilai 0
 
         // Membaca data dari hasil query dan mengisi nilai counts sesuai bulan
-        logbookData.forEach(function (item) {
+        logbookData.forEach(function(item) {
             var index = item.month - 1; // Bulan dimulai dari 1, sedangkan indeks array dimulai dari 0
             counts[index] = item.count;
         });
@@ -1144,8 +1161,10 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: months.map(function (month) {
-                    return new Date(currentYear, month - 1, 1).toLocaleString('default', { month: 'short' });
+                labels: months.map(function(month) {
+                    return new Date(currentYear, month - 1, 1).toLocaleString('default', {
+                        month: 'short'
+                    });
                 }), // Mengubah angka bulan menjadi nama bulan singkat (Jan, Feb, Mar, ...)
                 datasets: [{
                     label: 'Jumlah Log Book Kuliah 2024',
@@ -1163,15 +1182,14 @@
                 }
             }
         });
-
     </script>
 
 
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Handle logout link click
-            $('a#logout-link').click(function (event) {
+            $('a#logout-link').click(function(event) {
                 event.preventDefault(); // Prevent default link behavior
                 $('#logout-form').submit(); // Submit the form
             });
