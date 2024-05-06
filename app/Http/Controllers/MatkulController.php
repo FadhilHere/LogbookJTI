@@ -17,16 +17,16 @@ class MatkulController extends Controller
     {
         $listRuangLab = DB::table('lab')->pluck('ruang_lab');
         $datalab = DB::select(DB::raw("SELECT * FROM lab"));
-	$kelas = DB::table('kelas')->get();
+        $kelas = DB::table('kelas')->get();
         $labFilter = $request->input('labFilter');
         $semesterFilter = $request->input('semesterFilter');
         $now = now();
         $nowYear = $now->year;
 
         $query = DB::table('matakuliah')
-	->join('lab', 'matakuliah.id_lab', '=', 'lab.id_lab')
-	->join('kelas', 'matakuliah.kelas', '=', 'kelas.id_kelas')
-        ->select('matakuliah.*', 'lab.ruang_lab', 'kelas.*');
+            ->join('lab', 'matakuliah.id_lab', '=', 'lab.id_lab')
+            ->join('kelas', 'matakuliah.kelas', '=', 'kelas.id_kelas')
+            ->select('matakuliah.*', 'lab.ruang_lab', 'kelas.*');
 
         // Filter berdasarkan ruang lab jika terdapat nilai pada labFilter
         if ($labFilter && $labFilter !== 'semua_lab') {
@@ -119,50 +119,50 @@ class MatkulController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
- public function store(Request $request)
-	     {
-		             $request->validate([
-				                 'id_lab' => 'required',
-						             'jamMasuk' => 'required',
-							                 'jamKeluar' => 'required',
-									             'sks' => 'required',
-										     'matkul' => 'required',
-										      'kelas' => 'required',
-												             'dosen' => 'required',
-													                 'ail' => 'required',
-															             'tanggal' => 'required|date',
-																     'tanggalSelesai' => 'required|date',
-																     'hari' => 'required',
-																		         ]);
+    public function store(Request $request)
+    {
+        $request->validate([
+            'id_lab' => 'required',
+            'jamMasuk' => 'required',
+            'jamKeluar' => 'required',
+            'sks' => 'required',
+            'matkul' => 'required',
+            'kelas' => 'required',
+            'dosen' => 'required',
+            'ail' => 'required',
+            'tanggal' => 'required|date',
+            'tanggalSelesai' => 'required|date',
+            'hari' => 'required',
+        ]);
 
-			            
-			             $tanggalSelesai = $request->tanggalSelesai;
 
-			            
-			             $tanggal = $request->tanggal;
+        $tanggalSelesai = $request->tanggalSelesai;
 
-				           
-				             $semester = $this->hitungSemester($tanggal);
 
-				             DB::table('matakuliah')->insert([
-						                 'id_lab' => $request->id_lab,
-								             'jamMasuk' => $request->jamMasuk,
-									                 'jamKeluar' => $request->jamKeluar,
-											             'sks' => $request->sks,
-												     'matkul' => $request->matkul,
-												     'kelas' => $request->kelas,
-														             'dosen' => $request->dosen,
-															                 'ail' => $request->ail,
-																	             'tanggal' => $tanggal,
-																		                 'tanggalSelesai' => $tanggalSelesai,
-																				 'semester' => $semester,
-																				 'hari' => $request->hari,
-																					             ]);
+        $tanggal = $request->tanggal;
 
-					             return redirect()->route('matkul.index')->with('success', 'Matakuliah berhasil ditambahkan');
- 
- 
- }
+
+        $semester = $this->hitungSemester($tanggal);
+
+        DB::table('matakuliah')->insert([
+            'id_lab' => $request->id_lab,
+            'jamMasuk' => $request->jamMasuk,
+            'jamKeluar' => $request->jamKeluar,
+            'sks' => $request->sks,
+            'matkul' => $request->matkul,
+            'kelas' => $request->kelas,
+            'dosen' => $request->dosen,
+            'ail' => $request->ail,
+            'tanggal' => $tanggal,
+            'tanggalSelesai' => $tanggalSelesai,
+            'semester' => $semester,
+            'hari' => $request->hari,
+        ]);
+
+        return redirect()->route('matkul.index')->with('success', 'Matakuliah berhasil ditambahkan');
+
+
+    }
     private function hitungTanggalSelesai($tanggalSelesai, $semester)
     {
         $tahunSelesai = Carbon::parse($tanggalSelesai)->addYear()->year;
@@ -239,48 +239,48 @@ class MatkulController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-	        {
-			        $request->validate([
-					            'id_lab' => 'required',
-						                'jamMasuk' => 'required',
-								            'jamKeluar' => 'required',
-									                'sks' => 'required',
-											'matkul' => 'required',
-											'kelas' => 'required',
-												                'dosen' => 'required',
-														            'ail' => 'required',
-															                'tanggal' => 'required|date',
-																	'tanggalSelesai' => 'required|date',
-																	'hari' => 'required',
+    {
+        $request->validate([
+            'id_lab' => 'required',
+            'jamMasuk' => 'required',
+            'jamKeluar' => 'required',
+            'sks' => 'required',
+            'matkul' => 'required',
+            'kelas' => 'required',
+            'dosen' => 'required',
+            'ail' => 'required',
+            'tanggal' => 'required|date',
+            'tanggalSelesai' => 'required|date',
+            'hari' => 'required',
 
-																		            ]);
+        ]);
 
-				        $tanggalSelesai = $request->tanggalSelesai;
-				        $tanggal = $request->tanggal;
-					        $semester = $this->hitungSemester($tanggal);
+        $tanggalSelesai = $request->tanggalSelesai;
+        $tanggal = $request->tanggal;
+        $semester = $this->hitungSemester($tanggal);
 
-					        DB::table('matakuliah')->where('id_matakuliah', $id)->update([
-							            'id_lab' => $request->id_lab,
-								                'jamMasuk' => $request->jamMasuk,
-										            'jamKeluar' => $request->jamKeluar,
-											                'sks' => $request->sks,
-													'matkul' => $request->matkul,
-													'kelas' => $request->kelas,
-														                'dosen' => $request->dosen,
-																            'ail' => $request->ail,
-																	                'tanggal' => $tanggal,
-																			            'tanggalSelesai' => $tanggalSelesai,
-																				    'semester' => $semester,
-																				    'hari' => $request->hari,
-																						        ]);
+        DB::table('matakuliah')->where('id_matakuliah', $id)->update([
+            'id_lab' => $request->id_lab,
+            'jamMasuk' => $request->jamMasuk,
+            'jamKeluar' => $request->jamKeluar,
+            'sks' => $request->sks,
+            'matkul' => $request->matkul,
+            'kelas' => $request->kelas,
+            'dosen' => $request->dosen,
+            'ail' => $request->ail,
+            'tanggal' => $tanggal,
+            'tanggalSelesai' => $tanggalSelesai,
+            'semester' => $semester,
+            'hari' => $request->hari,
+        ]);
 
-						        return redirect()->route('matkul.index')->with('success', 'Matakuliah berhasil diperbarui');
-						    }
+        return redirect()->route('matkul.index')->with('success', 'Matakuliah berhasil diperbarui');
+    }
 
-        private function hitungSemester($tanggalSelesai)
-		    {
-			            return (new \DateTime($tanggalSelesai) >= new \DateTime(date('Y') . '-09-01')) ? 'ganjil' : 'genap';
-				        }
+    private function hitungSemester($tanggalSelesai)
+    {
+        return (new \DateTime($tanggalSelesai) >= new \DateTime(date('Y') . '-09-01')) ? 'ganjil' : 'genap';
+    }
     /**
      * Remove the specified resource from storage.
      *

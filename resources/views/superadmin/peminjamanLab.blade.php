@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Logbook Kuliah</title>
+    <title>History Perbaikan</title>
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
@@ -25,7 +25,6 @@
 
         .custom-badge-style {
             margin-right: 5px;
-
         }
 
         .custom-text-style {
@@ -131,14 +130,11 @@
                                 </svg><span>Tables</span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="{{ route('kuliahDosen.index') }}">Log Dosen</a></li>
-                                <li class="active"><a class="nav-link" href="{{ route('kuliahDosen.kuliah') }}">Log
-                                        Kuliah</a></li>
+                                <li><a class="nav-link" href="{{ route('kuliahDosen.kuliah') }}">Log Kuliah</a></li>
                                 <li><a class="nav-link " href="{{ route('kegiatan.index') }}">Log
                                         Kegiatan</a></li>
-                                <li><a class="nav-link " href="{{ route('labpc.index') }}">Lab &
-                                        Kelas</a></li>
-                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata
-                                        Kuliah</a></li>
+                                <li><a class="nav-link " href="{{ route('labpc.index') }}">Lab & Kelas</a></li>
+                                <li><a class="nav-link " href="{{ route('matkul.index') }}">Mata Kuliah</a></li>
                                 <li>
                                     <a class="nav-link" href="{{ route('historyMatkul') }}">History Mata
                                         Kuliah</a>
@@ -150,7 +146,10 @@
                                     <a class="nav-link" href="{{ route('historyPerbaikan') }}">History
                                         Perbaikan</a>
                                 </li>
-
+                                <li class="active">
+                                    <a class="nav-link" href="{{ route('peminjaman.index') }}">History
+                                        Peminjaman Lab</a>
+                                </li>
                                 <li><a class="nav-link " href="{{ route('user.index') }}">User</a></li>
                             </ul>
                         </li>
@@ -165,30 +164,20 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Log Kuliah Mahasiswa</h4>
+                                        <h4>Peminjaman Lab</h4>
                                     </div>
                                     <div class="card-body">
 
                                         <div class="row mb-3">
-                                            <!-- Bagian Filter Kelas dan Lab -->
-                                            <div class="col-md-6 d-flex justify-content-start">
-                                                <div class="dropdown" style="margin-bottom: 15px;">
-                                                    <button class="btn btn-success dropdown-toggle" type="button"
-                                                        id="exportDropdown" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        Export Data
+                                            <div class="col-md-6 d-flex align-items-end">
+                                                <div class="mr-2">
+                                                    <button type="button" class="btn btn-primary"
+                                                        data-toggle="modal" data-target="#tambahDataModal">
+                                                        Tambah Data
                                                     </button>
-                                                    <div class="dropdown-menu" aria-labelledby="exportDropdown">
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('kuliah.export.excelKuliahMingguan') }}">Excel
-                                                            Mingguan</a>
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('kuliah.export.excelKuliahBulanan') }}">Excel
-                                                            Bulanan</a>
-                                                    </div>
                                                 </div>
-                                                <div class="dropdown mr-2 ml-2">
-                                                    <button class="btn btn-info dropdown-toggle" type="button"
+                                                <div class="dropdown">
+                                                    <button class="btn btn-success dropdown-toggle" type="button"
                                                         id="labFilterDropdown" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
                                                         Filter Lab
@@ -204,66 +193,14 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="dropdown">
-                                                    <button class="btn btn-warning dropdown-toggle" type="button"
-                                                        id="kelasFilterDropdown" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        Filter Kelas
-                                                    </button>
-                                                    <div class="dropdown-menu" aria-labelledby="kelasFilterDropdown">
-                                                        <a class="dropdown-item kelas-filter-dropdown-item"
-                                                            href="#" data-value="semua_kelas">Semua Kelas</a>
-                                                        @foreach ($listKelas as $kelas)
-                                                            <a class="dropdown-item kelas-filter-dropdown-item"
-                                                                href="#"
-                                                                data-value="{{ $kelas }}">{{ $kelas }}</a>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
+                                                <form id="filterForm" class="ml-2">
+                                                    <input type="hidden" id="labFilter" name="labFilter"
+                                                        value="{{ $labFilter ?? '' }}">
+                                                </form>
+
                                             </div>
-
-                                            <!-- Bagian Filter Kelas dan Lab -->
-
-
-                                            <!-- Bagian Filter Tanggal -->
-                                            <div class="col-md-6">
-                                                <div class="float-right">
-                                                    <form id="filterForm" method="GET"
-                                                        action="{{ route('kuliahDosen.kuliah') }}">
-                                                        <div class="form-row align-items-end">
-                                                            <div class="col">
-                                                                <label for="startDate">Tanggal Mulai:</label>
-                                                                <input type="date" class="form-control"
-                                                                    id="startDate" name="startDate"
-                                                                    value="{{ $startDate ?? '' }}">
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="endDate">Tanggal Akhir:</label>
-                                                                <input type="date" class="form-control"
-                                                                    id="endDate" name="endDate"
-                                                                    value="{{ $endDate ?? '' }}">
-                                                            </div>
-                                                            <div class="col">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Filter</button>
-                                                            </div>
-                                                        </div>
-                                                        <input type="hidden" id="labFilter" name="labFilter"
-                                                            value="{{ $labFilter ?? '' }}">
-                                                        <input type="hidden" id="kelasFilter" name="kelasFilter"
-                                                            value="{{ $kelasFilter ?? '' }}">
-                                                    </form>
-                                                </div>
-                                            </div>
-
 
                                         </div>
-
-
-
-
-
-
 
                                         <div class="table-responsive">
                                             <div id="table-1_wrapper"
@@ -273,7 +210,123 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            @include('superadmin.tabel.tkuliah')
+                                            <table class="table table-striped dataTable no-footer" id="table-1"
+                                                role="grid" aria-describedby="table-1_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="text-center sorting_asc" tabindex="0"
+                                                            aria-controls="table-1" rowspan="1" colspan="1"
+                                                            aria-sort="ascending"
+                                                            aria-label="#: activate to sort column descending"
+                                                            style="width: 35.9px;">#</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Lab: activate to sort column ascending"
+                                                            style="width: 182.087px;">Lab</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Peminjam: activate to sort column ascending"
+                                                            style="width: 182.087px;">Peminjam</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Tanggal Mulai: activate to sort column ascending"
+                                                            style="width: 182.087px;">Tanggal Mulai</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Tanggal Selesai: activate to sort column ascending"
+                                                            style="width: 182.087px;">Tanggal Selesai
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Jam Mulai: activate to sort column ascending"
+                                                            style="width: 182.087px;">Jam Mulai</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Jam Selesai: activate to sort column ascending"
+                                                            style="width: 182.087px;">Jam Selesai</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Kegiatan: activate to sort column ascending"
+                                                            style="width: 182.087px;">Kegiatan</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Status: activate to sort column ascending"
+                                                            style="width: 182.087px;">Status</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Keterangan: activate to sort column ascending"
+                                                            style="width: 182.087px;">Keterangan</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="table-1"
+                                                            rowspan="1" colspan="1"
+                                                            aria-label="Aksi: activate to sort column ascending"
+                                                            style="width: 182.087px;">Aksi</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    @forelse ($peminjamanLab as $index => $peminjaman)
+                                                        <tr>
+                                                            <td>{{ $index + 1 }}</td>
+                                                            <td>{{ $peminjaman->ruang_lab }}</td>
+                                                            <td>{{ $peminjaman->peminjam }}</td>
+                                                            <td>{{ $peminjaman->tanggalMulai }}</td>
+                                                            <td>{{ $peminjaman->tanggalSelesai }}</td>
+                                                            <td>{{ $peminjaman->jamMulai }}</td>
+                                                            <td>{{ $peminjaman->jamSelesai }}</td>
+                                                            <td>{{ $peminjaman->kegiatan }}</td>
+                                                            <td>
+                                                                @php
+                                                                    $badgeClass = '';
+                                                                    switch ($peminjaman->status) {
+                                                                        case 'Selesai':
+                                                                            $badgeClass = 'badge-success';
+                                                                            break;
+                                                                        case 'On Progress':
+                                                                            $badgeClass = 'badge-warning';
+                                                                            break;
+                                                                        default:
+                                                                            $badgeClass = 'badge-primary';
+                                                                    }
+                                                                @endphp
+                                                                <span
+                                                                    class="badge {{ $badgeClass }}">{{ $peminjaman->status }}</span>
+                                                            </td>
+                                                            <td>{{ $peminjaman->keterangan }}</td>
+                                                            <td class="text-center">
+
+                                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                                    action="{{ route('peminjaman.destroy', $peminjaman->id_peminjaman) }}"
+                                                                    method="post">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="button"
+                                                                        class="btn btn-sm btn-primary" title="Edit"
+                                                                        data-toggle="modal"
+                                                                        data-target="#editDataModal{{ $peminjaman->id_peminjaman }}">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-sm btn-danger" title="Hapus">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </button>
+
+                                                                </form>
+
+                                                            </td>
+                                                        </tr>
+                                                    @empty
+                                                        <tr>
+                                                            <td colspan="20" class="text-center">
+                                                                <div class="alert alert-danger">
+                                                                    Data history peminjaman belum tersedia.
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endforelse
+                                                </tbody>
+
+                                            </table>
+
                                         </div>
                                     </div>
                                 </div>
@@ -281,54 +334,170 @@
                         </div>
                     </div>
                 </section>
-                @foreach ($data as $logKeg)
-                    <!-- Modal -->
-                    <div class="modal fade" id="viewModal{{ $logKeg->id_logkul }}" tabindex="-1" role="dialog"
-                        aria-labelledby="viewModalLabel{{ $logKeg->id_logkul }}" aria-hidden="true">
+
+                @foreach ($peminjamanLab as $peminjaman)
+                    <div class="modal fade" id="editDataModal{{ $peminjaman->id_peminjaman }}" tabindex="-1"
+                        role="dialog" aria-labelledby="editDataModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="viewModalLabel{{ $logKeg->id_logkul }}">View Details
-                                    </h5>
+                                    <h5 class="modal-title" id="editDataModalLabel">Edit Data Peminjaman Lab</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <p><strong>Nama:</strong> {{ $logKeg->nama }}</p>
-                                            <p><strong>NIM:</strong> {{ $logKeg->nim }}</p>
-                                            <p><strong>Kelas:</strong> {{ $logKeg->kelas }}</p>
-                                            <p><strong>Nomor Pc:</strong> {{ $logKeg->pc }}</p>
-                                            <p><strong>Ruang Lab:</strong> {{ $logKeg->ruang_lab }}</p>
-                                            <p><strong>Loker:</strong> {{ $logKeg->loker }}</p>
+                                    <form id="formEditData"
+                                        action="{{ route('peminjaman.update', $peminjaman->id_peminjaman) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="form-group">
+                                            <label for="labEdit">Lab:</label>
+                                            <select class="form-control" id="labEdit" name="labEdit">
+                                                <option value="" selected disabled>Pilih Lab</option>
+                                                @foreach ($labs as $ruangLab)
+                                                    <option value="{{ $ruangLab->id_lab }}"
+                                                        {{ $ruangLab->id_lab == $peminjaman->lab ? 'selected' : '' }}>
+                                                        {{ $ruangLab->ruang_lab }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                        <div class="col-md-4">
-                                            <p><strong>Matakuliah:</strong> {{ $logKeg->matkul }}</p>
-                                            <p><strong>Jam Masuk:</strong> {{ $logKeg->jamMasuk }}</p>
-                                            <p><strong>Jam Keluar:</strong> {{ $logKeg->jamKeluar }}</p>
-                                            <p><strong>Tanggal:</strong> {{ $logKeg->tanggal }}</p>
-                                            <p><strong>Keterangan:</strong> {{ $logKeg->keterangan }}</p>
-                                            <p><strong>Alat:</strong> {{ $logKeg->alat }}</p>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="tanggalMulaiEdit">Tanggal Mulai:</label>
+                                                <input type="date" class="form-control" id="tanggalMulaiEdit"
+                                                    name="tanggalMulaiEdit" value="{{ $peminjaman->tanggalMulai }}">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="tanggalSelesaiEdit">Tanggal Selesai:</label>
+                                                <input type="date" class="form-control" id="tanggalSelesaiEdit"
+                                                    name="tanggalSelesaiEdit"
+                                                    value="{{ $peminjaman->tanggalSelesai }}">
+                                            </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <p><strong>Mouse:</strong> {{ $logKeg->mouse }}</p>
-                                            <p><strong>Keyboard:</strong> {{ $logKeg->keyboard }}</p>
-                                            <p><strong>Monitor:</strong> {{ $logKeg->monitor }}</p>
-                                            <p><strong>Jaringan:</strong> {{ $logKeg->jaringan }}</p>
-                                            <p><strong>Durasi:</strong> {{ $logKeg->durasi }} Menit</p>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="jamMulaiEdit">Jam Mulai:</label>
+                                                <input type="time" class="form-control" id="jamMulaiEdit"
+                                                    name="jamMulaiEdit" value="{{ $peminjaman->jamMulai }}">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="jamSelesaiEdit">Jam Selesai:</label>
+                                                <input type="time" class="form-control" id="jamSelesaiEdit"
+                                                    name="jamSelesaiEdit" value="{{ $peminjaman->jamSelesai }}">
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-dismiss="modal">Close</button>
+                                        <div class="form-group">
+                                            <label for="peminjamEdit">Peminjam:</label>
+                                            <input type="text" class="form-control" id="peminjamEdit"
+                                                name="peminjamEdit" value="{{ $peminjaman->peminjam }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="statusEdit">Status:</label>
+                                            <select class="form-control" id="statusEdit" name="statusEdit">
+                                                <option value="Dijadwalkan"
+                                                    {{ $peminjaman->status == 'Dijadwalkan' ? 'selected' : '' }}>
+                                                    Dijadwalkan</option>
+                                                <option value="On Progress"
+                                                    {{ $peminjaman->status == 'On Progress' ? 'selected' : '' }}>On
+                                                    Progress</option>
+                                                <option value="Selesai"
+                                                    {{ $peminjaman->status == 'Selesai' ? 'selected' : '' }}>Selesai
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="kegiatanEdit">Kegiatan:</label>
+                                            <input type="text" class="form-control" id="kegiatanEdit"
+                                                name="kegiatanEdit" value="{{ $peminjaman->kegiatan }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="keteranganEdit">Keterangan:</label>
+                                            <textarea class="form-control" id="keteranganEdit" name="keteranganEdit" rows="3">{{ $peminjaman->keterangan }}</textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
+
+
+                <div class="modal fade" id="tambahDataModal" tabindex="-1" role="dialog"
+                    aria-labelledby="tambahDataModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="tambahDataModalLabel">Tambah Data Peminjaman Lab</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Form untuk menambahkan data peminjaman lab -->
+                                <form id="formTambahData" action="{{ route('peminjaman.store') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="lab">Lab:</label>
+                                        <select class="form-control" id="lab" name="lab">
+                                            <option value="" selected disabled>Pilih Lab</option>
+                                            @foreach ($labs as $ruangLab)
+                                                <option value="{{ $ruangLab->id_lab }}">{{ $ruangLab->ruang_lab }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="tanggalMulai">Tanggal Mulai:</label>
+                                            <input type="date" class="form-control" id="tanggalMulai"
+                                                name="tanggalMulai">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="tanggalSelesai">Tanggal Selesai:</label>
+                                            <input type="date" class="form-control" id="tanggalSelesai"
+                                                name="tanggalSelesai">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="jamMulai">Jam Mulai:</label>
+                                            <input type="time" class="form-control" id="jamMulai"
+                                                name="jamMulai">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="jamSelesai">Jam Selesai:</label>
+                                            <input type="time" class="form-control" id="jamSelesai"
+                                                name="jamSelesai">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="peminjam">Peminjam:</label>
+                                        <input type="text" class="form-control" id="peminjam" name="peminjam">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kegiatan">Kegiatan:</label>
+                                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="keterangan">Keterangan:</label>
+                                        <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <div class="settingSidebar">
                     <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
@@ -502,9 +671,6 @@
             });
         });
     </script>
-
-
-
 
 
 

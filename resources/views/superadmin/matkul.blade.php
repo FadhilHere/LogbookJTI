@@ -188,6 +188,10 @@
                                     <a class="nav-link" href="{{ route('historyPerbaikan') }}">History
                                         Perbaikan</a>
                                 </li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('peminjaman.index') }}">History
+                                        Peminjaman Lab</a>
+                                </li>
                                 <li><a class="nav-link " href="{{ route('user.index') }}">User</a></li>
                             </ul>
                         </li>

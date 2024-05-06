@@ -24,8 +24,8 @@ class SLogDosenController extends Controller
 
         $query = DB::table('logkuliah')
             ->join('lab', 'logkuliah.id_lab', '=', 'lab.id_lab')
-	    ->join('matakuliah', 'logkuliah.matkul', '=', 'matakuliah.id_matakuliah')
-    		->join('kelas', 'logkuliah.kelas', '=', 'kelas.id_kelas')
+            ->join('matakuliah', 'logkuliah.matkul', '=', 'matakuliah.id_matakuliah')
+            ->join('kelas', 'logkuliah.kelas', '=', 'kelas.id_kelas')
             ->select('logkuliah.*', 'lab.ruang_lab', 'matakuliah.matkul', 'kelas.nama_kelas')
             ->whereNotNull('logkuliah.SKS');
 
@@ -118,7 +118,8 @@ class SLogDosenController extends Controller
     {
         $labFilter = $request->input('labFilter');
         $kelasFilter = $request->input('kelasFilter');
-
+        $startDate = $request->input('startDate');
+        $endDate = $request->input('endDate');
 
         $query = DB::table('logkuliah')
             ->join('lab', 'logkuliah.id_lab', '=', 'lab.id_lab')
@@ -132,23 +133,40 @@ class SLogDosenController extends Controller
             $query->where('lab.ruang_lab', $labFilter);
         }
 
-
-        if ($kelasFilter) {
+        if ($kelasFilter && $kelasFilter !== 'semua_kelas') {
             $query->where('kelas.nama_kelas', $kelasFilter);
+        }
+
+        if ($startDate && $endDate) {
+            $query->whereBetween('logkuliah.tanggal', [$startDate, $endDate]);
         }
 
         $data = $query->get();
 
-
         $listRuangLab = DB::table('lab')->distinct()->pluck('ruang_lab');
-
-
         $listKelas = DB::table('kelas')->distinct()->pluck('nama_kelas');
 
-        return view('superadmin.kuliah', compact('data', 'listRuangLab', 'listKelas', 'labFilter', 'kelasFilter'));
+        return view('superadmin.kuliah', compact('data', 'listRuangLab', 'listKelas', 'labFilter', 'kelasFilter', 'startDate', 'endDate'));
     }
 
-    
+
+
+
+    public function filterByDate(Request $request)
+    {
+        $startDate = Carbon::parse($request->input('startDate'))->startOfDay();
+        $endDate = Carbon::parse($request->input('endDate'))->endOfDay();
+
+        // Query untuk mengambil data log kuliah berdasarkan tanggal
+        $logs = DB::table('logkuliah')
+            ->whereBetween('tanggal', [$startDate, $endDate])
+            ->get();
+
+        return response()->json($logs);
+    }
+
+
+
 
     public function dashboard()
     {

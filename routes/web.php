@@ -58,6 +58,9 @@ Route::prefix('superadmin')->middleware('checkRole:superadmin')->group(function 
     Route::resource('/user', UserController::class);
     Route::resource('/perbaikan', \App\Http\Controllers\PerbaikanController::class);
     Route::get('/historyPerbaikan', [\App\Http\Controllers\PerbaikanController::class, 'historyPerbaikan'])->name('historyPerbaikan');
+    Route::resource('/peminjaman', \App\Http\Controllers\PeminjamanController::class);
+    Route::get('/kuliah/filterByDate', [\App\Http\Controllers\SLogDosenController::class, 'filterByDate'])->name('kuliah.filterByDate');
+
 });
 
 

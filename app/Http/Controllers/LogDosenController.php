@@ -27,9 +27,9 @@ class LogDosenController extends Controller
         $data = DB::table('logkuliah')
 
             ->join('lab', 'logkuliah.id_lab', '=', 'lab.id_lab')
-	    ->join('matakuliah', 'logkuliah.matkul', '=', 'matakuliah.id_matakuliah')
-    		->join('kelas', 'logkuliah.kelas', '=', 'kelas.id_kelas')
-            ->select('logkuliah.*', 'lab.ruang_lab', 'matakuliah.matkul',  'kelas.nama_kelas')
+            ->join('matakuliah', 'logkuliah.matkul', '=', 'matakuliah.id_matakuliah')
+            ->join('kelas', 'logkuliah.kelas', '=', 'kelas.id_kelas')
+            ->select('logkuliah.*', 'lab.ruang_lab', 'matakuliah.matkul', 'kelas.nama_kelas')
             ->where(function ($query) use ($username) {
                 $query->where('logkuliah.dosen', $username)->orWhere('logkuliah.ail', $username);
             })
@@ -44,28 +44,28 @@ class LogDosenController extends Controller
     }
 
     public function getKelasList($labId)
-	        {
-			        
-			        $kelasList = DB::table('matakuliah')
-					            ->where('id_lab', $labId)
-					                ->distinct()
-						            ->pluck('kelas'); 
+    {
 
-				        
-				        $kelasListData = DB::table('kelas')
-						            ->whereIn('id_kelas', $kelasList)
-						                ->get();
+        $kelasList = DB::table('matakuliah')
+            ->where('id_lab', $labId)
+            ->distinct()
+            ->pluck('kelas');
 
-				        return response()->json($kelasListData);
-				    }
+
+        $kelasListData = DB::table('kelas')
+            ->whereIn('id_kelas', $kelasList)
+            ->get();
+
+        return response()->json($kelasListData);
+    }
 
     public function getMatkulList($idLab, $kelasId)
     {
         $currentDate = Carbon::now();
 
         $matakuliahs = DB::table('matakuliah')
-		->where('id_lab', $idLab)
-	->where('kelas', $kelasId)
+            ->where('id_lab', $idLab)
+            ->where('kelas', $kelasId)
             ->where(function ($query) use ($currentDate) {
                 $query->whereDate('tanggal', '<=', $currentDate)
                     ->WhereDate('tanggalSelesai', '>=', $currentDate);
@@ -76,19 +76,19 @@ class LogDosenController extends Controller
     }
 
     public function getMatkulList1($idLab)
-	        {
-			        $currentDate = Carbon::now();
+    {
+        $currentDate = Carbon::now();
 
-				        $matakuliahs = DB::table('matakuliah')
-						            ->where('id_lab', $idLab)
-						                ->where(function ($query) use ($currentDate) {
-									                $query->whereDate('tanggal', '<=', $currentDate)
-												                    ->whereDate('tanggalSelesai', '>=', $currentDate);
-											            })
-												                ->get();
+        $matakuliahs = DB::table('matakuliah')
+            ->where('id_lab', $idLab)
+            ->where(function ($query) use ($currentDate) {
+                $query->whereDate('tanggal', '<=', $currentDate)
+                    ->whereDate('tanggalSelesai', '>=', $currentDate);
+            })
+            ->get();
 
-				        return $matakuliahs;
-				    }
+        return $matakuliahs;
+    }
 
 
 
@@ -122,11 +122,11 @@ class LogDosenController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-	 public function create()
-	     {
+    public function create()
+    {
 
-	        $labs = DB::table('lab')->get();
-           $kelas = DB::table('kelas')->get();
+        $labs = DB::table('lab')->get();
+        $kelas = DB::table('kelas')->get();
 
         $idLab = request('lab') ?? $labs->first()->id_lab;
         $kelasId = request('kelas') ?? $kelas->first()->id_kelas;
@@ -139,8 +139,8 @@ class LogDosenController extends Controller
         $matkulInfo = $firstMatkul ? $this->getMatkulInfo($idLab, $firstMatkul->id_matakuliah) : null;
 
         return view('Admin.isiLog', compact('labs', 'matakuliahs', 'matkulInfo', 'kelas'));
-    }	
-	
+    }
+
 
     public function store(Request $request)
     {
@@ -156,7 +156,7 @@ class LogDosenController extends Controller
         $sks = $request->input('sks');
         $matkul = $request->input('matkul');
         $tanggal = $request->input('tanggal');
-	$kelas = $request->input('kelas');
+        $kelas = $request->input('kelas');
         $jumlahMhs = $hadir + $tidakhadir;
 
         $durasi = Carbon::parse($jamKeluar)->diffInMinutes(Carbon::parse($jamMasuk));
@@ -171,8 +171,8 @@ class LogDosenController extends Controller
             'tidakhadir' => $tidakhadir,
             'sks' => $sks,
             'matkul' => $matkul,
-	    'tanggal' => $tanggal,
-	    'kelas' => $kelas,
+            'tanggal' => $tanggal,
+            'kelas' => $kelas,
             'jumlahMhs' => $jumlahMhs,
             'durasi' => $durasi,
             'jabatan' => $currentUser->level,

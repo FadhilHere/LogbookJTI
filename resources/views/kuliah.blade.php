@@ -109,6 +109,27 @@
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
 
+        .custom-select2 {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            /* text-align: center; */
+            /* Teks di tengah dropdown */
+        }
+
+        .custom-select2:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
         /* Untuk teks placeholder yang ada di tengah dropdown */
         .select2-container .select2-selection--single .select2-selection__placeholder {
             margin-left: 15px;
@@ -185,7 +206,6 @@
                                                 Belum waktunya masuk kelas!
                                             </div>
                                             @csrf
-
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -194,8 +214,6 @@
                                                             class="form-control" required>
                                                     </div>
                                                 </div>
-
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="nim">Nim:</label>
@@ -203,23 +221,46 @@
                                                             class="form-control" required>
                                                     </div>
                                                 </div>
-
-
                                             </div>
-
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for="pc">Nomor PC:</label>
-                                                        <select name="pc" id="pc" class="form-control">
-                                                            @for ($i = 1; $i <= 40; $i++)
-                                                                <option value="{{ $i }}">
-                                                                    {{ $i }}</option>
-                                                            @endfor
-                                                        </select>
+                                                        <div class="position-relative">
+                                                            <select name="pc" id="pc"
+                                                                class="form-control custom-select2">
+                                                                @for ($i = 1; $i <= 40; $i++)
+                                                                    <option value="{{ $i }}">
+                                                                        {{ $i }}</option>
+                                                                @endfor
+                                                            </select>
+                                                            <span
+                                                                class="position-absolute top-50 end-0 translate-middle-y mr-2">
+                                                                <i class="fas fa-chevron-down"></i>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="loker">No Loker:</label>
+                                                        <div class="position-relative">
+                                                            <select name="loker"
+                                                                class="form-control custom-select2">
+                                                                <option value="" disabled selected hidden>Nomor
+                                                                    Loker</option>
+                                                                @for ($i = 1; $i <= 40; $i++)
+                                                                    <option value="{{ $i }}">
+                                                                        {{ $i }}</option>
+                                                                @endfor
+                                                            </select>
+                                                            <span
+                                                                class="position-absolute top-50 end-0 translate-middle-y mr-2">
+                                                                <i class="fas fa-chevron-down"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="lab">Ruang Lab:</label>
@@ -254,6 +295,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label for="matkul">Matakuliah:</label>
@@ -262,6 +304,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
+
                                             </div>
                                             <div class="row">
 
@@ -428,20 +471,12 @@
                     cache: true
                 },
             });
-
-
             $('#kelas').prop('disabled', true);
-
-
             $('#lab').change(function() {
-
                 var labId = $(this).val();
-
                 if (labId) {
-
                     $('#kelas').prop('disabled', false);
                 } else {
-
                     $('#kelas').prop('disabled', true);
                 }
             });
