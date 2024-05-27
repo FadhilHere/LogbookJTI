@@ -209,7 +209,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="nama">Nama:</label>
+                                                        <label for="nama">Nama kamuh:</label>
                                                         <input type="text" name="nama" id="nama"
                                                             class="form-control" required>
                                                     </div>
