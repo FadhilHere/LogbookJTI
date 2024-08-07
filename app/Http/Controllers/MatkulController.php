@@ -49,9 +49,6 @@ class MatkulController extends Controller
     }
 
 
-
-
-
     public function historyMatkul(Request $request)
     {
         $listRuangLab = DB::table('lab')->pluck('ruang_lab'); // Ambil daftar ruang lab untuk dropdown
@@ -63,6 +60,8 @@ class MatkulController extends Controller
 
         $now = now();
         $nowYear = $now->year;
+        $nowMonth = $now->month;
+
 
         $query = DB::table('matakuliah')
             ->join('lab', 'matakuliah.id_lab', '=', 'lab.id_lab')
@@ -84,9 +83,12 @@ class MatkulController extends Controller
         }
 
         // Filter berdasarkan tanggal dan tanggalSelesai dalam tahun yang sama dengan sekarang
-        $query->where(function ($query) use ($nowYear) {
+        $query->where(function ($query) use ($nowYear, $nowMonth) {
             $query->whereYear('matakuliah.tanggal', '!=', $nowYear)
-                ->whereYear('matakuliah.tanggalSelesai', '!=', $nowYear);
+                ->orWhere(function ($query) use ($nowYear, $nowMonth) {
+                    $query->whereYear('matakuliah.tanggal', '=', $nowYear)
+                        ->whereMonth('matakuliah.tanggalSelesai', '<', $nowMonth);
+                });
         });
 
         $matakuliahs = $query->orderBy('id_matakuliah', 'desc')->get();

@@ -160,9 +160,6 @@
             </div>
             <!-- Main Content -->
             <div class="main-content" style="min-height: 612px;">
-
-
-
                 <section class="section">
                     <div class="section-body">
                         <div class="row">
