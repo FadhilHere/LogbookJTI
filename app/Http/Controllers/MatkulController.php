@@ -22,6 +22,7 @@ class MatkulController extends Controller
         $semesterFilter = $request->input('semesterFilter');
         $now = now();
         $nowYear = $now->year;
+        $nowDate = $now->toDateString();
 
         $query = DB::table('matakuliah')
             ->join('lab', 'matakuliah.id_lab', '=', 'lab.id_lab')
@@ -38,9 +39,9 @@ class MatkulController extends Controller
         }
 
         // Filter berdasarkan tanggal dan tanggalSelesai dalam tahun yang sama dengan sekarang
-        $query->where(function ($query) use ($nowYear) {
-            $query->whereYear('matakuliah.tanggal', $nowYear)
-                ->orWhereYear('matakuliah.tanggalSelesai', $nowYear);
+        $query->where(function ($query) use ($nowDate) {
+            $query->where('matakuliah.tanggal', '<=', $nowDate)
+                ->where('matakuliah.tanggalSelesai', '>=', $nowDate);
         });
 
         $matakuliahs = $query->orderBy('id_matakuliah', 'desc')->get();
